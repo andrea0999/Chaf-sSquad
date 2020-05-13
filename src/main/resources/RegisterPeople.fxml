@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@cursantStyle.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <TextField alignment="TOP_CENTER" layoutX="-3.0" layoutY="2.0" prefHeight="69.0" prefWidth="600.0" style="-fx-background-color: FFC;" text="Inregistrare" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <font>
+                <Font name="Castellar" size="35.0" />
+            </font>
+        </TextField>
+      <TextField layoutX="29.0" layoutY="94.0" promptText="Nume" style="-fx-border-color: FF9;" AnchorPane.bottomAnchor="273.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="29.0" layoutY="127.0" promptText="Prenume" style="-fx-border-color: FF9;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="29.0" layoutY="160.0" promptText="UserName" style="-fx-border-color: FF9;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <PasswordField layoutX="29.0" layoutY="193.0" promptText="Password" style="-fx-border-color: FF9;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </PasswordField>
+      <TextField layoutX="29.0" layoutY="226.0" promptText="Email" style="-fx-border-color: FF9;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="29.0" layoutY="259.0" promptText="Telefon" style="-fx-border-color: FF9;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <Button fx:id="inregistrare" layoutX="124.0" layoutY="310.0" mnemonicParsing="false" style="-fx-background-color: FFC;" text="Inregistrare">
+         <font>
+            <Font name="Belwe Lt BT Light" size="15.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>

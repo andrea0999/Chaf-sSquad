@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: black;" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: black;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
+      <ImageView fitHeight="400.0" fitWidth="633.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/login.jpg" />
+         </image>
+      </ImageView>
       <HBox>
          <children>
             <TextField alignment="TOP_CENTER" prefHeight="53.0" prefWidth="633.0" style="-fx-background-color: transparent;" text="LogIn on Chef's Squad">
