@@ -1,4 +1,4 @@
-package sample.Entities;
+package sample.entities;
 
 public class Curs {
     private String titlu;
