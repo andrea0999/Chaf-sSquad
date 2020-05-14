@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: black;" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller">
+   <children>
+      <HBox>
+         <children>
+            <TextField alignment="TOP_CENTER" prefHeight="53.0" prefWidth="633.0" style="-fx-background-color: transparent;" text="LogIn on Chef's Squad">
+               <font>
+                  <Font name="Berlin Sans FB" size="30.0" />
+               </font>
+            </TextField>
+         </children>
+      </HBox>
+      <PasswordField cache="true" layoutX="181.0" layoutY="164.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 3px 0px;">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </PasswordField>
+      <Button layoutX="181.0" layoutY="241.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="75.0" style="-fx-background-color: transparent; -fx-text-fill: red; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: white;" text="Close">
+         <font>
+            <Font name="Belwe Lt BT Light" size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="365.0" layoutY="241.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: red;" text="Login">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="creazaBucatar" layoutX="131.0" layoutY="349.0" mnemonicParsing="false" onAction="#creazaInregistrareBucatar" style="-fx-background-color: transparent;" text="Creati un cont de Bucatar">
+         <font>
+            <Font name="Belwe Lt BT Light" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="creazaCursant" layoutX="328.0" layoutY="334.0" mnemonicParsing="false" onAction="#creazaInregistrareCursant" style="-fx-background-color: transparent;" text="Creati un cont de Cursant">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <TextField cache="true" layoutX="181.0" layoutY="107.0" prefHeight="57.0" prefWidth="249.0" promptText="UserName" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 3px 0px;">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>

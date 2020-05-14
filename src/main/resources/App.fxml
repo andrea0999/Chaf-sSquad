@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller">
+    <children>
+        <HBox AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+            <children>
+                <TextField alignment="CENTER" prefHeight="36.0" prefWidth="560.0" style="-fx-background-color: transparent;" text="Chef's Squad">
+                    <font>
+                        <Font name="Papyrus" size="37.0" />
+                    </font>
+                    <padding>
+                        <Insets right="-30.0" top="-10.0" />
+                    </padding>
+                </TextField>
+            </children>
+        </HBox>
+        <TextField layoutX="233.0" layoutY="88.0" prefHeight="51.0" prefWidth="222.0" style="-fx-background-color: transparent;" text="Bun venit la curs! ">
+            <font>
+                <Font name="Centaur" size="26.0" />
+            </font>
+            <opaqueInsets>
+                <Insets bottom="-20.0" left="-20.0" right="-20.0" top="-20.0" />
+            </opaqueInsets>
+        </TextField>
+        <Button fx:id="pushCursant" graphicTextGap="20.0" layoutX="202.0" layoutY="327.0" lineSpacing="15.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="0.0" prefWidth="71.0" style="-fx-background-color: FC6;" text="Cursant" textAlignment="CENTER">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Button>
+        <TextField layoutX="13.0" layoutY="181.0" prefHeight="39.0" prefWidth="270.0" style="-fx-background-color: transparent;" text="Te rugam selecteaza rolul ">
+            <font>
+                <Font name="Candara" size="20.0" />
+            </font>
+        </TextField>
+        <Button fx:id="pushBucatar" graphicTextGap="20.0" layoutX="202.0" layoutY="265.0" lineSpacing="15.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="0.0" prefWidth="70.0" style="-fx-background-color: FC6;" text="Bucatar" textAlignment="CENTER">
+            <font>
+                <Font size="15.0" />
+            </font></Button>
+    </children>
+</AnchorPane>
