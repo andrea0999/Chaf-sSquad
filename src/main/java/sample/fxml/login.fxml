@@ -5,15 +5,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<<<<<<< HEAD:src/main/java/sample/fxml/login.fxml
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: black;" stylesheets="@../css/loginStyle.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller">
-=======
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: black;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
->>>>>>> a9919cb79364093825b40170939ae9da0c98f84c:src/main/java/sample/login.fxml
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: black;"  xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.Controller">
+
    <children>
       <ImageView fitHeight="400.0" fitWidth="633.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resources/login.jpg" />
+            <Image url="@../../../resources/login.jpg" />
          </image>
       </ImageView>
       <HBox>

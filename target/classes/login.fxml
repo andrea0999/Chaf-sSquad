@@ -5,11 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<<<<<<< HEAD
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: black;" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller">
-=======
-<AnchorPane prefHeight="391.0" prefWidth="614.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: black;" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
->>>>>>> a9919cb79364093825b40170939ae9da0c98f84c
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: black;"  xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.Controller">
+
    <children>
       <ImageView fitHeight="422.0" fitWidth="660.0" layoutY="2.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -35,7 +33,7 @@
             <Font name="Belwe Lt BT Light" size="17.0" />
          </font>
       </Button>
-      <Button layoutX="328.0" layoutY="242.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: red;" text="Login">
+      <Button layoutX="328.0" layoutY="242.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: #ff0000;" text="Login">
          <font>
             <Font name="Belwe Lt BT Light" size="15.0" />
          </font>
