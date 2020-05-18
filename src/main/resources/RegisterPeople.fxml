@@ -4,47 +4,56 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@cursantStyle.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<!-- alignment="TOP_CENTER"  prefHeight="69.0" prefWidth="600.0"-->
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.RegistrationControllerCursant">
     <children>
-        <TextField alignment="TOP_CENTER" layoutX="-3.0" layoutY="2.0" prefHeight="69.0" prefWidth="600.0" style="-fx-background-color: FFC;" text="Inregistrare" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Text layoutX="-3.0" layoutY="2.0" style="-fx-background-color: FFC;" text="Inregistrare" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <font>
                 <Font name="Castellar" size="35.0" />
             </font>
+        </Text>
+        <TextField fx:id="firstname" layoutX="29.0" layoutY="94.0" promptText="Nume" style="-fx-border-color: FF9;">
+            <font>
+                <Font size="15.0" />
+            </font>
         </TextField>
-      <TextField layoutX="29.0" layoutY="94.0" promptText="Nume" style="-fx-border-color: FF9;" AnchorPane.bottomAnchor="273.0">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </TextField>
-      <TextField layoutX="29.0" layoutY="127.0" promptText="Prenume" style="-fx-border-color: FF9;">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </TextField>
-      <TextField layoutX="29.0" layoutY="160.0" promptText="UserName" style="-fx-border-color: FF9;">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </TextField>
-      <PasswordField layoutX="29.0" layoutY="193.0" promptText="Password" style="-fx-border-color: FF9;">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </PasswordField>
-      <TextField layoutX="29.0" layoutY="226.0" promptText="Email" style="-fx-border-color: FF9;">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </TextField>
-      <TextField layoutX="29.0" layoutY="259.0" promptText="Telefon" style="-fx-border-color: FF9;">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </TextField>
-      <Button fx:id="inregistrare" layoutX="124.0" layoutY="310.0" mnemonicParsing="false" style="-fx-background-color: FFC;" text="Inregistrare">
-         <font>
-            <Font name="Belwe Lt BT Light" size="15.0" />
-         </font>
-      </Button>
+        <TextField fx:id="lastname" layoutX="29.0" layoutY="127.0" promptText="Prenume" style="-fx-border-color: FF9;">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="username" layoutX="29.0" layoutY="160.0" promptText="UserName" style="-fx-border-color: FF9;">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </TextField>
+        <PasswordField fx:id="password" layoutX="29.0" layoutY="193.0" promptText="Password" style="-fx-border-color: FF9;">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </PasswordField>
+        <TextField fx:id="email" layoutX="29.0" layoutY="226.0" promptText="Email" style="-fx-border-color: FF9;">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="phone" layoutX="29.0" layoutY="259.0" promptText="Telefon" style="-fx-border-color: FF9;">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </TextField>
+
+
+
+        <Button fx:id="inregistrare" layoutX="124.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleRegisterCursant" style="-fx-background-color: FFC;" text="Inregistrare">
+            <font>
+                <Font name="Belwe Lt BT Light" size="15.0" />
+            </font>
+        </Button>
+        <TextFlow layoutX="258.0" layoutY="44.0" prefHeight="200.0" prefWidth="200.0" />
+        <Text fx:id="registrationMessage" layoutX="40.0" layoutY="57.0" />
+
+
     </children>
 </AnchorPane>

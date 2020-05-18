@@ -1,81 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0"  xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.RegistrationControllerBucatar">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="529.0" layoutX="103.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@bucatar.jpg" />
-         </image>
-      </ImageView>
-      <TextField layoutX="397.0" layoutY="184.0" promptText="Cost " style="-fx-border-color: FCC;">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </TextField>
       <TextField alignment="TOP_CENTER" layoutX="-3.0" layoutY="2.0" prefHeight="69.0" prefWidth="600.0" style="-fx-background-color: FCF;" text="Inregistrare" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <font>
             <Font name="Castellar" size="35.0" />
          </font>
       </TextField>
-      <TextField layoutX="29.0" layoutY="94.0" promptText="Nume" style="-fx-border-color: FCC;">
+      <TextField fx:id="nume" layoutX="29.0" layoutY="94.0" promptText="Nume" style="-fx-border-color: FCC;">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField layoutX="29.0" layoutY="127.0" promptText="Prenume" style="-fx-border-color: FCC;">
+      <TextField fx:id="prenume" layoutX="29.0" layoutY="127.0" promptText="Prenume" style="-fx-border-color: FCC;">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField layoutX="29.0" layoutY="160.0" promptText="UserName" style="-fx-border-color: FCC;">
+      <TextField fx:id="username" layoutX="29.0" layoutY="160.0" promptText="UserName" style="-fx-border-color: FCC;">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <PasswordField layoutX="29.0" layoutY="193.0" promptText="Password" style="-fx-border-color: FCC;">
+      <PasswordField fx:id="password" layoutX="29.0" layoutY="193.0" promptText="Password" style="-fx-border-color: FCC;">
          <font>
             <Font size="15.0" />
          </font>
       </PasswordField>
-      <TextField layoutX="29.0" layoutY="226.0" promptText="Email" style="-fx-border-color: FCC;">
+      <TextField fx:id="email" layoutX="29.0" layoutY="226.0" promptText="Email" style="-fx-border-color: FCC;">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField layoutX="29.0" layoutY="259.0" promptText="Telefon" style="-fx-border-color: FCC;">
+      <TextField fx:id="telefon" layoutX="29.0" layoutY="259.0" promptText="Telefon" style="-fx-border-color: FCC;">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <Button fx:id="inregistrare" layoutX="492.0" layoutY="309.0" mnemonicParsing="false" style="-fx-background-color: TRANSPARENT; -fx-border-color: FCF; -fx-border-width: 0px 0px 3px 0px;" text="Inregistrare">
+      <Button fx:id="inregistrare" layoutX="492.0" layoutY="309.0" mnemonicParsing="false" onAction="#handleRegisterBucatar" style="-fx-background-color: TRANSPARENT; -fx-border-color: FCF; -fx-border-width: 0px 0px 3px 0px;" text="Inregistrare">
          <font>
             <Font name="Belwe Lt BT Light" size="15.0" />
          </font>
       </Button>
-      <TextField layoutX="284.0" layoutY="70.0" prefHeight="34.0" prefWidth="148.0" style="-fx-background-color: transparent;" text="Detalii Curs">
+      <TextField layoutX="275.0" layoutY="86.0" prefHeight="34.0" prefWidth="148.0" style="-fx-background-color: transparent;" text="Detalii Curs">
          <font>
             <Font name="Eras Medium ITC" size="17.0" />
          </font>
       </TextField>
-      <TextField layoutX="397.0" layoutY="87.0" promptText="Titlu" style="-fx-border-color: FCC;">
+      <TextField fx:id="titlu"  layoutX="397.0" layoutY="87.0" promptText="Titlu" style="-fx-border-color: FCC;">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField layoutX="397.0" layoutY="120.0" promptText="Descriere" style="-fx-border-color: FCC;">
+      <TextField fx:id="descriere"  layoutX="397.0" layoutY="120.0" promptText="Descriere" style="-fx-border-color: FCC;">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField layoutX="397.0" layoutY="153.0" promptText="NumarMaximParticipanti" style="-fx-border-color: FCC;">
+      <TextField fx:id="nrParticipanti" layoutX="397.0" layoutY="153.0" promptText="NumarMaximParticipanti" style="-fx-border-color: FCC;">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
+      <TextField fx:id="cost" layoutX="397.0" layoutY="184.0" promptText="Cost " style="-fx-border-color: FCC;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextFlow layoutX="258.0" layoutY="44.0" prefHeight="200.0" prefWidth="200.0" />
+      <Text fx:id="registrationMessage" layoutX="40.0" layoutY="57.0" />
    </children>
 </AnchorPane>
