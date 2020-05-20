@@ -11,7 +11,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.services.UserService;
-import sun.plugin.dom.html.HTMLBodyElement;
 
 import java.io.IOException;
 
@@ -64,7 +63,7 @@ public class LoginController {
             return;
         }
 
-        if(UserService.checkCredentiale(username,password) && role.equals("Bucatar")){
+        if(UserService.checkCredentiale(username,password)  && role.equals("Cursant") ){
             loginMessage.setText("Autentificare cu succes");
             try {
                 Parent fxml= FXMLLoader.load(getClass().getResource("/PaginaPrincipalaBucatar.fxml"));
