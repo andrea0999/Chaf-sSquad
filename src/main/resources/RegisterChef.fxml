@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0"  xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.RegistrationControllerBucatar">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.RegistrationControllerBucatar">
    <children>
-      <TextField alignment="TOP_CENTER" layoutX="-3.0" layoutY="2.0" prefHeight="69.0" prefWidth="600.0" style="-fx-background-color: FCF;" text="Inregistrare" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox prefHeight="77.0" prefWidth="600.0" style="-fx-background-color: FCF;" />
+      <ImageView fitHeight="318.0" fitWidth="280.0" layoutX="166.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/bucatar.jpg" />
+         </image></ImageView>
+
+      <Text layoutX="149.0" layoutY="47.0" style="-fx-background-color: FCF;" text="Inregistrare" AnchorPane.leftAnchor="149.0" AnchorPane.rightAnchor="172.435546875" AnchorPane.topAnchor="12.0">
          <font>
             <Font name="Castellar" size="35.0" />
          </font>
-      </TextField>
+      </Text>
       <TextField fx:id="nume" layoutX="29.0" layoutY="94.0" promptText="Nume" style="-fx-border-color: FCC;">
          <font>
             <Font size="15.0" />
@@ -46,17 +53,17 @@
             <Font name="Belwe Lt BT Light" size="15.0" />
          </font>
       </Button>
-      <TextField layoutX="275.0" layoutY="86.0" prefHeight="34.0" prefWidth="148.0" style="-fx-background-color: transparent;" text="Detalii Curs">
+      <Text layoutX="300.0" layoutY="100.0" style="-fx-background-color: transparent;" text="Detalii Curs">
          <font>
             <Font name="Eras Medium ITC" size="17.0" />
          </font>
-      </TextField>
-      <TextField fx:id="titlu"  layoutX="397.0" layoutY="87.0" promptText="Titlu" style="-fx-border-color: FCC;">
+      </Text>
+      <TextField fx:id="titlu" layoutX="397.0" layoutY="87.0" promptText="Titlu" style="-fx-border-color: FCC;">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField fx:id="descriere"  layoutX="397.0" layoutY="120.0" promptText="Descriere" style="-fx-border-color: FCC;">
+      <TextField fx:id="descriere" layoutX="397.0" layoutY="120.0" promptText="Descriere" style="-fx-border-color: FCC;">
          <font>
             <Font size="15.0" />
          </font>
@@ -71,7 +78,7 @@
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextFlow layoutX="258.0" layoutY="44.0" prefHeight="200.0" prefWidth="200.0" />
-      <Text fx:id="registrationMessage" layoutX="40.0" layoutY="57.0" />
+      <TextFlow layoutX="224.0" layoutY="325.0" prefHeight="62.0" prefWidth="251.0" />
+      <Text fx:id="registrationMessage" layoutX="57.0" layoutY="344.0" wrappingWidth="109.0" />
    </children>
 </AnchorPane>

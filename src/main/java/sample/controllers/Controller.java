@@ -20,21 +20,5 @@ public class Controller {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-    public void creazaInregistrareBucatar(ActionEvent actionEvent) throws IOException {
-        Parent fxml= FXMLLoader.load(getClass().getResource("/RegisterChef.fxml"));
-        Scene scene=new Scene(fxml);
-        scene.setFill(Color.TRANSPARENT);
-        Stage primaryStage=new Stage();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-    public void creazaInregistrareCursant(ActionEvent actionEvent) throws IOException {
-        Parent fxml= FXMLLoader.load(getClass().getResource("/RegisterPeople.fxml"));
-        Scene scene=new Scene(fxml);
-        scene.setFill(Color.TRANSPARENT);
-        Stage primaryStage=new Stage();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
 
 }
