@@ -11,7 +11,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.services.UserService;
-import sun.plugin.dom.html.HTMLBodyElement;
 
 import java.io.IOException;
 
