@@ -89,5 +89,16 @@ public class UserService {
         return md;
     }
 
+    public static boolean checkCredentiale(String username,String password) {
+
+        for (User user : users) {
+            if (Objects.equals(username, user.getUsername()) && Objects.equals(encodePassword(username, password), user.getPassword())) {
+                System.out.println("login acces");
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
 

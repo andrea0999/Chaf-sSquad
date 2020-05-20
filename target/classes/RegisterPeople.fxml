@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
 <!-- alignment="TOP_CENTER"  prefHeight="69.0" prefWidth="600.0"-->
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.RegistrationControllerCursant">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: FFC;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.RegistrationControllerCursant">
     <children>
-        <Text layoutX="-3.0" layoutY="2.0" style="-fx-background-color: FFC;" text="Inregistrare" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <ImageView fitHeight="294.0" fitWidth="600.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@/cursant.jpg" />
+            </image>
+        </ImageView>
+
+
+        <Text layoutX="161.0" layoutY="49.0" style="-fx-background-color: FFC;" text="Inregistrare" AnchorPane.leftAnchor="161.0" AnchorPane.rightAnchor="160.435546875" AnchorPane.topAnchor="14.0">
             <font>
                 <Font name="Castellar" size="35.0" />
             </font>
@@ -51,9 +59,8 @@
                 <Font name="Belwe Lt BT Light" size="15.0" />
             </font>
         </Button>
-        <TextFlow layoutX="258.0" layoutY="44.0" prefHeight="200.0" prefWidth="200.0" />
-        <Text fx:id="registrationMessage" layoutX="40.0" layoutY="57.0" />
-
+        <TextFlow layoutX="224.0" layoutY="325.0" prefHeight="62.0" prefWidth="251.0" />
+        <Text fx:id="registrationMessage" layoutX="440.0" layoutY="107.0" wrappingWidth="109.0" />
 
     </children>
 </AnchorPane>
