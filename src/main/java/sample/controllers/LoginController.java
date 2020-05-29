@@ -63,7 +63,7 @@ public class LoginController {
             return;
         }
 
-        if(UserService.checkCredentiale(username,password)  && role.equals("Cursant") ){
+        if(UserService.checkCredentiale(username,password)  && role.equals("Bucatar") ){
             loginMessage.setText("Autentificare cu succes");
             try {
                 Parent fxml= FXMLLoader.load(getClass().getResource("/PaginaPrincipalaBucatar.fxml"));

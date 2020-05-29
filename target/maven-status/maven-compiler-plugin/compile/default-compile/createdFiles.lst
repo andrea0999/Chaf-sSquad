@@ -5,6 +5,7 @@ sample\exceptions\UsernameAlreadyExistsException.class
 sample\entities\Bucatar.class
 sample\exceptions\CouldNotWriteUsersException.class
 sample\Main.class
+sample\controllers\AddController.class
 sample\entities\User.class
 sample\entities\Reteta.class
 sample\controllers\Controller.class

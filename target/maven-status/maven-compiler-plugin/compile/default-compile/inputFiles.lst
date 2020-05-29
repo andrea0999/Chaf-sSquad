@@ -8,6 +8,7 @@ D:\andrea\fis\ChefsSquad\src\main\java\sample\entities\Reteta.java
 D:\andrea\fis\ChefsSquad\src\main\java\sample\Main.java
 D:\andrea\fis\ChefsSquad\src\main\java\sample\entities\Curs.java
 D:\andrea\fis\ChefsSquad\src\main\java\sample\entities\User.java
+D:\andrea\fis\ChefsSquad\src\main\java\sample\controllers\AddController.java
 D:\andrea\fis\ChefsSquad\src\main\java\sample\exceptions\UsernameAlreadyExistsException.java
 D:\andrea\fis\ChefsSquad\src\main\java\sample\controllers\RegistrationControllerBucatar.java
 D:\andrea\fis\ChefsSquad\src\main\java\sample\entities\Bucatar.java
