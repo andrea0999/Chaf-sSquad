@@ -8,11 +8,12 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import sample.services.UserService;
 
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class Main extends Application {
 
-    public static void main(String[] args) { launch(args); }
+    public static void main(String[] args) { launch(args);  }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -28,6 +29,8 @@ public class Main extends Application {
         scene.setFill(Color.TRANSPARENT);
         primaryStage.setScene(scene);
         primaryStage.show();
+
+
     }
 
 

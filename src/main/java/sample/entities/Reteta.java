@@ -5,9 +5,9 @@ public class Reteta {
     private String nume;
     private String ingrediente;
     private String etapeCulinare;
-    private double timpDePreparare;
+    private String timpDePreparare;
 
-    public Reteta(String nume, String ingrediente, String etapeCulinare, double timpDePreparare) {
+    public Reteta(String nume, String ingrediente, String etapeCulinare, String timpDePreparare) {
         this.nume = nume;
         this.ingrediente = ingrediente;
         this.etapeCulinare = etapeCulinare;
@@ -23,6 +23,6 @@ public class Reteta {
     public String getEtapeCulinare() { return etapeCulinare; }
     public void setEtapeCulinare(String etapeCulinare) { this.etapeCulinare = etapeCulinare; }
 
-    public double getTimpDePreparare() { return timpDePreparare; }
-    public void setTimpDePreparare(double timpDePreparare) { this.timpDePreparare = timpDePreparare; }
+    public String getTimpDePreparare() { return timpDePreparare; }
+    public void setTimpDePreparare(String timpDePreparare) { this.timpDePreparare = timpDePreparare; }
 }
