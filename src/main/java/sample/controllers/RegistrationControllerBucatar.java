@@ -1,5 +1,6 @@
 package sample.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -58,5 +59,15 @@ public class RegistrationControllerBucatar {
             registrationMessage.setText(e.getMessage());
             System.out.println("registration message: "+registrationMessage);
         }
+    }
+
+
+    public void handleAdaugaButtonAction(ActionEvent actionEvent) throws IOException {
+        Parent fxml= FXMLLoader.load(getClass().getResource("/AdaugaReteta.fxml"));
+        Scene scene=new Scene(fxml);
+        //scene.setFill(Color.TRANSPARENT);
+        Stage primaryStage=new Stage();
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 }
