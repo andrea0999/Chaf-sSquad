@@ -1,10 +1,13 @@
 package sample.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
@@ -16,14 +19,22 @@ import java.io.IOException;
 
 public class LoginController {
 
+    ObservableList<String> roleList = FXCollections.observableArrayList("Cursant", "Bucatar");
+
     @FXML
-    public Text loginMessage;
+    private Text loginMessage;
     @FXML
-    public PasswordField passwordField;
+    private PasswordField passwordField;
     @FXML
-    public TextField usernameField;
+    private TextField usernameField;
     @FXML
-    public TextField roleField;
+    private ChoiceBox roleField;
+
+    @FXML
+    public void initialize(){
+        roleField.setValue("Cursant");
+        roleField.setItems(roleList);
+    }
 
     public void creazaInregistrareBucatar(ActionEvent actionEvent) throws IOException {
         Parent fxml= FXMLLoader.load(getClass().getResource("/RegisterChef.fxml"));
@@ -47,7 +58,8 @@ public class LoginController {
     public void handleLoginButtonAction(ActionEvent actionEvent)  throws IOException {
         String username = usernameField.getText();
         String password = passwordField.getText();
-        String role = roleField.getText();
+        String role = roleField.getValue().toString();
+        System.out.println("LoginController handleLoginButtonAction() role="+role);
 
         if (username == null || username.isEmpty()) {
             loginMessage.setText("Introduceti username-ul");
@@ -93,21 +105,6 @@ public class LoginController {
             else
                 loginMessage.setText("Incorrect login!");
         }
-
-        /*if (username.equals("teacher") && password.equals("teacher")) {
-            try {
-                Stage stage = (Stage) loginMessage.getScene().getWindow();
-                Parent viewStudentsRoot = FXMLLoader.load(getClass().getResource("../fxml/view-students.fxml"));
-                Scene scene = new Scene(viewStudentsRoot, 600, 400);
-                stage.setScene(scene);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            return;
-        }*/
-
-
 
     }
 }
