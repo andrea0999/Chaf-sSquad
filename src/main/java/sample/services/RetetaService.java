@@ -19,6 +19,27 @@ public class RetetaService {
     private static List<Reteta> retete = new ArrayList<>();
     private static  boolean dejaParcurs = false;
 
+    public static Object readJsonRetete(String filename) throws Exception {
+        FileReader reader = new FileReader(filename);
+        JSONParser jsonParser = new JSONParser();
+
+        return jsonParser.parse(reader);
+
+    }
+
+    public static void parcurgereListaRetete() throws Exception {
+        if(!dejaParcurs){
+            JSONArray listaRetete = (JSONArray) readJsonRetete("Retete.json");
+            dejaParcurs=true;
+            Iterator<JSONObject> iterator = listaRetete.iterator();
+            while (iterator.hasNext()) {
+                JSONObject retetaJson = iterator.next();
+                Reteta r = new Reteta(retetaJson.get("nume").toString(), retetaJson.get("ingrediente").toString(), retetaJson.get("etapeCulinare").toString(), retetaJson.get("timpPreparare").toString());
+                retete.add(r);
+            }
+        }
+    }
+
     public static void writeJsonRetete(String filename) throws Exception {
         JSONArray listaRetete = new JSONArray();
 
@@ -35,26 +56,6 @@ public class RetetaService {
         Files.write(Paths.get(filename), listaRetete.toJSONString().getBytes());
     }
 
-    public static Object readJsonRetete(String filename) throws Exception {
-        FileReader reader = new FileReader(filename);
-        JSONParser jsonParser = new JSONParser();
-
-        return jsonParser.parse(reader);
-
-    }
-
-    public static void parcurgereListaRetete() throws Exception {
-            if(!dejaParcurs){
-            JSONArray listaRetete = (JSONArray) readJsonRetete("Retete.json");
-                dejaParcurs=true;
-                Iterator<JSONObject> iterator = listaRetete.iterator();
-                while (iterator.hasNext()) {
-                    JSONObject retetaJson = iterator.next();
-                    Reteta r = new Reteta(retetaJson.get("nume").toString(), retetaJson.get("ingrediente").toString(), retetaJson.get("etapeCulinare").toString(), retetaJson.get("timpPreparare").toString());
-                    retete.add(r);
-                }
-            }
-    }
 
     public static void addReteta(String nume, String ingrediente, String etape, String timp) throws Exception {
         System.out.println("ReteteService->addReteta("+nume+", "+ingrediente+", "+etape+", "+timp+")");

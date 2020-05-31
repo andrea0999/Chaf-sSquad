@@ -55,7 +55,7 @@ public class LoginController {
 
 
     @FXML
-    public void handleLoginButtonAction(ActionEvent actionEvent)  throws IOException {
+    public void handleLoginButtonAction(ActionEvent actionEvent) throws Exception {
         String username = usernameField.getText();
         String password = passwordField.getText();
         String role = roleField.getValue().toString();

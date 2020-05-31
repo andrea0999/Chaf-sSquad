@@ -45,7 +45,7 @@ public class RegistrationControllerBucatar {
         System.out.println("RegistrationControllerBucatar->handleRegisterAction");
         try {
             Curs curs = new Curs(titlu.getText(), descriere.getText(),Double.parseDouble(cost.getText()),Integer.parseInt(nrParticipanti.getText()));
-            UserService.addBucatar(nume.getText(),prenume.getText(), email.getText(), telefon.getText(), username.getText(), password.getText(),"Bucatar",curs);
+            UserService.addBucatar(prenume.getText(),nume.getText(), email.getText(), telefon.getText(), username.getText(), password.getText(),"Bucatar",curs);
             registrationMessage.setText("Account created successfully!");
 
             Parent fxml= FXMLLoader.load(getClass().getResource("/login.fxml"));
@@ -58,6 +58,8 @@ public class RegistrationControllerBucatar {
         } catch (UsernameAlreadyExistsException e) {
             registrationMessage.setText(e.getMessage());
             System.out.println("registration message: "+registrationMessage);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

@@ -47,6 +47,8 @@ public class RegistrationControllerCursant {
         } catch (UsernameAlreadyExistsException e) {
            registrationMessage.setText(e.getMessage());
             System.out.println("registration message: "+registrationMessage);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

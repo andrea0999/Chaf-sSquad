@@ -22,7 +22,6 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();*/
 
-        UserService.loadUsersFromFile();
 
         Parent fxml=FXMLLoader.load(getClass().getResource("/App.fxml"));
         Scene scene=new Scene(fxml);
