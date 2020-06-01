@@ -75,7 +75,7 @@ public class LoginController {
             return;
         }
 
-        if(UserService.checkCredentiale(username,password)  && role.equals("Bucatar") ){
+        if(UserService.checkCredentiale(username,password,role)  && role.equals("Bucatar") ){
             loginMessage.setText("Autentificare cu succes");
             try {
                 Parent fxml= FXMLLoader.load(getClass().getResource("/PaginaPrincipalaBucatar.fxml"));
@@ -89,7 +89,7 @@ public class LoginController {
             }
         }
         else {
-            if(UserService.checkCredentiale(username,password) && role.equals("Cursant")){
+            if(UserService.checkCredentiale(username,password,role) && role.equals("Cursant")){
                 loginMessage.setText("Autentificare cu succes");
                 try {
                     Parent fxml= FXMLLoader.load(getClass().getResource("/PaginaPrincipalaCursant.fxml"));

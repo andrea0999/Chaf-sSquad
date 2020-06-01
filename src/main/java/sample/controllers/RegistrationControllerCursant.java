@@ -1,5 +1,6 @@
 package sample.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -50,5 +51,14 @@ public class RegistrationControllerCursant {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void handleVizualizareRetete(ActionEvent actionEvent) throws IOException {
+        Parent fxml= FXMLLoader.load(getClass().getResource("/ListaRetete.fxml"));
+        Scene scene=new Scene(fxml);
+        //scene.setFill(Color.TRANSPARENT);
+        Stage primaryStage=new Stage();
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 }

@@ -134,10 +134,10 @@ public class UserService {
         return md;
     }
 
-    public static boolean checkCredentiale(String username,String password) throws Exception {
+    public static boolean checkCredentiale(String username,String password,String role) throws Exception {
         parcurgereListaUsers();
         for (User user : users) {
-            if (Objects.equals(username, user.getUsername()) && Objects.equals(encodePassword(username, password), user.getPassword())) {
+            if (Objects.equals(username, user.getUsername()) && Objects.equals(encodePassword(username, password), user.getPassword()) && Objects.equals(role, user.getRole())) {
                 System.out.println("UserService checkCredentiale() login acces true");
                 return true;
             }
