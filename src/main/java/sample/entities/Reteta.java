@@ -1,5 +1,7 @@
 package sample.entities;
 
+import javafx.scene.control.Button;
+
 public class Reteta {
 
     private String nume;
@@ -13,6 +15,7 @@ public class Reteta {
         this.etapeCulinare = etapeCulinare;
         this.timpDePreparare = timpDePreparare;
     }
+
 
     public String getNume() { return nume; }
     public void setNume(String nume) { this.nume = nume; }
