@@ -19,7 +19,7 @@
       <Button layoutX="451.0" layoutY="207.0" mnemonicParsing="false" text="Editeaza reteta" />
       <Button fx:id="adaugaField" layoutX="451.0" layoutY="157.0" onAction="#handleAdaugaButtonAction" text=" Adauga reteta" />
       <Button layoutX="451.0" layoutY="258.0" text="Sterge reteta" />
-      <Button layoutX="451.0" layoutY="108.0"  text="VizualizareRetete" />
+      <Button fx:id="listaRetete" layoutX="451.0" layoutY="108.0" onAction="#handleVizualizareRetete" text="Vizualizare retete" />
       <SplitMenuButton layoutX="43.0" layoutY="182.0" text="SplitMenuButton">
          <items>
             <MenuItem mnemonicParsing="false" text="Action 1" />

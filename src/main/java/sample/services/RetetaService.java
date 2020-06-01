@@ -19,6 +19,10 @@ public class RetetaService {
     private static List<Reteta> retete = new ArrayList<>();
     private static  boolean dejaParcurs = false;
 
+    public static List<Reteta> getRetete() {
+        return retete;
+    }
+
     public static Object readJsonRetete(String filename) throws Exception {
         FileReader reader = new FileReader(filename);
         JSONParser jsonParser = new JSONParser();
@@ -79,5 +83,12 @@ public class RetetaService {
                 throw new RetetaAlreadyExistsException(nume);
             }
         }
+    }
+
+    public static List<Reteta>  getListaRetete() throws Exception {
+        System.out.println("ReteteService->getListaRetete()");
+        parcurgereListaRetete();
+        return retete;
+
     }
 }

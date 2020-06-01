@@ -72,4 +72,12 @@ public class RegistrationControllerBucatar {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+    public void handleVizualizareRetete(ActionEvent actionEvent) throws IOException {
+        Parent fxml= FXMLLoader.load(getClass().getResource("/ListaRetete.fxml"));
+        Scene scene=new Scene(fxml);
+        //scene.setFill(Color.TRANSPARENT);
+        Stage primaryStage=new Stage();
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
 }
