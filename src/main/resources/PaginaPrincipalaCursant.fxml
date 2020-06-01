@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: FFC;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: FFC;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.RegistrationControllerCursant">
    <children>
       <Text layoutX="24.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activitati Cursant" textAlignment="CENTER" wrappingWidth="343.13671875">
          <font>
@@ -20,7 +20,7 @@
             <Image url="@PaginaPrincipalaCursant.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="460.0" layoutY="97.0" mnemonicParsing="false" text="VizualizareRetete" />
+      <Button layoutX="460.0" layoutY="97.0" mnemonicParsing="false" onAction="#handleVizualizareRetete" text="VizualizareRetete" />
       <Button layoutX="460.0" layoutY="149.0" mnemonicParsing="false" text="VizualizareSituatie" />
       <Button layoutX="460.0" layoutY="212.0" mnemonicParsing="false" text="RetetePreferate" />
    </children>
