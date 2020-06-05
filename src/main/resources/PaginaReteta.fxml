@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.PaginaRetetaController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: FFFFE0;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.PaginaRetetaController">
     <children>
+        <ImageView fitHeight="400.0" fitWidth="600.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@/paginaRetete.jpg" />
+            </image>
+        </ImageView>
+
         <Text fx:id="nume" layoutX="19.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="561.8759765625">
             <font>
                 <Font size="33.0" />
