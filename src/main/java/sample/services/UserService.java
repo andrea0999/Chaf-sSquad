@@ -23,8 +23,6 @@ public class UserService {
     private static List<User> users = new ArrayList<>();
     private static List<Cursant> cursanti = new ArrayList<>();
     private static  boolean dejaParcurs = false;
-    private static  boolean dejaParcurs1 = false;
-
 
 
     public static Object readJsonUsers(String filename) throws Exception {
@@ -116,7 +114,7 @@ public class UserService {
         }
     }
 
-    private static String encodePassword(String salt, String password) {
+    public static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 
@@ -148,23 +146,14 @@ public class UserService {
         return false;
     }
 
-    /*public static void parcurgeListaCursanti() throws Exception{
-        if(!dejaParcurs1){
-            JSONArray listaCursanti = (JSONArray) readJsonUsers("Users.json");
-            dejaParcurs1=true;
-            Iterator<JSONObject> iterator = listaCursanti.iterator();
-            while (iterator.hasNext()) {
-                User cursant;
-                JSONObject userJson = iterator.next();
-                System.out.println("UserService parcurgereListaUsers() role="+userJson.get("role").toString());
-                if(userJson.get("role").toString().equals("Cursant")) {
-                    cursant = new Cursant(userJson.get("firstname").toString(), userJson.get("lastname").toString(),userJson.get("email").toString(), userJson.get("phone").toString(),userJson.get("username").toString(), userJson.get("password").toString(),userJson.get("role").toString());
-                }
-                cursanti.add(cursant);
-            }
-        }
-    }*/
-    public static List<Cursant>  getListaUsers() throws Exception {
+    public static List<User>  getListaUsers() throws Exception {
+        System.out.println("UserService->getListaUsers()");
+        parcurgereListaUsers();
+        return users;
+
+    }
+
+    public static List<Cursant>  getListaCursanti() throws Exception {
         System.out.println("UserService->getListaCursanti()");
        parcurgereListaUsers();
         for(User user: users){
@@ -174,5 +163,14 @@ public class UserService {
         return cursanti;
     }
 
+    public static void schimbaParola(String username,String password) throws Exception {
+        parcurgereListaUsers();
+        for(User user : users){
+            if(user.getUsername().equals(username)){
+                user.setPassword(encodePassword(username,password));
+                writeJsonUsers("users.json");
+            }
+        }
+    }
 }
 
