@@ -34,7 +34,7 @@
       </MenuButton>
       <Button layoutX="307.0" layoutY="108.0" mnemonicParsing="false"  text="Adauga Note" />
       <Button layoutX="307.0" layoutY="157.0" mnemonicParsing="false" text="InactivitateCursant" />
-      <Button layoutX="451.0" layoutY="308.0" mnemonicParsing="false" text="VizualizareCursanti" />
+      <Button fx:id="listaCursanti" layoutX="451.0" layoutY="308.0" mnemonicParsing="false" onAction="#handleVizualizareCursanti" text="VizualizareCursanti" />
       <Text layoutX="33.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activitati Bucatar" wrappingWidth="316.625">
          <font>
             <Font name="Freehand521 BT" size="40.0" />

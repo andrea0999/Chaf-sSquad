@@ -38,7 +38,7 @@ public class ListaReteteController {
 
 
     @FXML
-    public void initialize() throws Exception {
+    public void initialize()  {
         System.out.println("ListaReteteController initialize()");
         retetaNumeColumn.setCellValueFactory(new PropertyValueFactory<>("nume"));
         retetaTimpDePreparareColumn.setCellValueFactory(new PropertyValueFactory<>("timpDePreparare"));
