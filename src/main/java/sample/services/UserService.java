@@ -21,7 +21,6 @@ import java.util.Objects;
 public class UserService {
 
     private static List<User> users = new ArrayList<>();
-    private static List<Cursant> cursanti = new ArrayList<>();
     private static  boolean dejaParcurs = false;
 
 
@@ -155,6 +154,7 @@ public class UserService {
 
     public static List<Cursant>  getListaCursanti() throws Exception {
         System.out.println("UserService->getListaCursanti()");
+        List<Cursant> cursanti = new ArrayList<>();
        parcurgereListaUsers();
         for(User user: users){
             if(user.getRole().equals("Cursant"))
