@@ -42,7 +42,6 @@ public class ListaReteteController {
         System.out.println("ListaReteteController initialize()");
         retetaNumeColumn.setCellValueFactory(new PropertyValueFactory<>("nume"));
         retetaTimpDePreparareColumn.setCellValueFactory(new PropertyValueFactory<>("timpDePreparare"));
-
         retetaTable.setItems(retete);
     }
 
@@ -66,6 +65,7 @@ public class ListaReteteController {
         else
             message.setText("Va rugam selectati o reteta pentru vizualizare");
     }
+
     @FXML
     public void handleEditeazaReteta(ActionEvent actionEvent) throws IOException {
         Reteta retetaSelectata = retetaTable.getSelectionModel().getSelectedItem();
@@ -83,11 +83,13 @@ public class ListaReteteController {
         else
             message.setText("Va rugam selectati o reteta pentru editare");
     }
+
+    @FXML
     public void handleStergeReteta(ActionEvent actionEvent) throws IOException {
         Reteta retetaSelectata = retetaTable.getSelectionModel().getSelectedItem();
         StergeRetetaController pagina =new StergeRetetaController();
         if(retetaSelectata!= null) {
-            System.out.println("ListaReteteController handleEditeazaReteta() reteta:"+retetaSelectata.getNume());
+            System.out.println("ListaReteteController handleStergeReteta() reteta:"+retetaSelectata.getNume());
             pagina.setReteta(retetaSelectata);
             Parent fxml = FXMLLoader.load(getClass().getResource("/StergeReteta.fxml"));
             Scene scene = new Scene(fxml);

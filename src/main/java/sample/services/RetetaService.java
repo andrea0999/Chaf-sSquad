@@ -103,4 +103,14 @@ public class RetetaService {
             }
         }
     }
+    public static void stergeReteta(String nume) throws Exception {
+        parcurgereListaRetete();
+        for(Reteta reteta : retete){
+            if(nume.equals(reteta.getNume())){
+                retete.remove(reteta);
+                writeJsonRetete("Retete.json");
+                break;
+            }
+        }
+    }
 }
