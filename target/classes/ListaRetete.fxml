@@ -7,13 +7,23 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: FFC;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ListaReteteController">
     <TableView fx:id="retetaTable" layoutX="35.0" layoutY="41.0" prefHeight="290.0" prefWidth="530.0" style="-fx-background-color: DDA0DD;" BorderPane.alignment="CENTER">
         <columns>
-            <TableColumn fx:id="retetaNumeColumn" prefWidth="90.0" text="Nume" />
-            <TableColumn fx:id="retetaTimpDePreparareColumn" prefWidth="125.0" text="Timp de prepaprare" />
+            <TableColumn fx:id="retetaNumeColumn" prefWidth="351.0" text="Nume" />
+            <TableColumn fx:id="retetaTimpDePreparareColumn" minWidth="0.0" prefWidth="178.0" text="Timp de preparare" />
         </columns>
     </TableView>
-    <Button fx:id="vizualizarePaginaReteta" layoutX="255.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleVizualizarePaginaReteta" style="-fx-background-color: E6E6FA;" text="Vizualizare" BorderPane.alignment="CENTER">
+    <Button fx:id="vizualizarePaginaReteta" layoutX="34.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleVizualizarePaginaReteta" style="-fx-background-color: E6E6FA;" text="Vizualizeaza" BorderPane.alignment="CENTER">
         <font>
             <Font size="15.0" />
         </font></Button>
+    <Button fx:id="editeazaReteta" layoutX="147.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleEditeazaReteta" style="-fx-background-color: E6E6FA;" text="Editeaza" BorderPane.alignment="CENTER">
+        <font>
+            <Font size="15.0" />
+        </font></Button>
+    <Button fx:id="stergeReteta" layoutX="237.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleVizualizarePaginaReteta" style="-fx-background-color: E6E6FA;" text="Sterge">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </Button>
+   <Text fx:id="message" layoutX="312.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="252.13671875" />
 
 </AnchorPane>

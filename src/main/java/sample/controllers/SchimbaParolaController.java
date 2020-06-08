@@ -40,7 +40,6 @@ public class SchimbaParolaController {
 
     public void handleSchimbaParolaAction(ActionEvent actionEvent) throws Exception {
         System.out.println("SchimbaParolaController - handleSchimbaParolaAction usename "+ this.username);
-        //LoginController usernameUser = new LoginController();
 
         for(User user: listaUsers){
             if(user.getUsername().equals(username)){

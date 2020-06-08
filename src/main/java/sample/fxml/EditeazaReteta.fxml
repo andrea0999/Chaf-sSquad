@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.EditeazaRetetaController">
+    <children>
+        <ImageView fitHeight="400.0" fitWidth="700.0" layoutY="1.0"  pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../resources/EditeazaReteta.jpg" />
+            </image>
+        </ImageView>
+        <Text fill="#12b217" layoutX="30.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Formular Editare Reteta" wrappingWidth="248.9140625">
+            <font>
+                <Font name="Onyx" size="40.0" />
+            </font>
+        </Text>
+        <Button layoutX="433.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleEditeazaReteta" style="-fx-background-color: FCF;" text="Editeaza">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Button>
+        <TextField fx:id="nume" layoutX="17.0" layoutY="56.0" prefHeight="57.0" prefWidth="395.0" style="-fx-background-color: transparent; -fx-border-color: FCF; -fx-border-width: 0px 0px 3px 0px;">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="ingrediente" layoutX="15.0" layoutY="144.0" prefHeight="103.0" prefWidth="543.0" style="-fx-background-color: transparent; -fx-border-color: FCF; -fx-border-width: 0px 0px 3px 0px;">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="etapeCulinare" layoutX="15.0" layoutY="269.0" prefHeight="111.0" prefWidth="543.0" style="-fx-background-color: transparent; -fx-border-color: FCF; -fx-border-width: 0px 0px 3px 0px;">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="timpDePreparare" layoutX="445.0" layoutY="78.0" prefHeight="57.0" prefWidth="128.0" style="-fx-background-color: transparent; -fx-border-color: FCF; -fx-border-width: 0px 0px 3px 0px;">
+            <font>
+                <Font size="25.0" />
+            </font>
+        </TextField>
+        <Text fx:id="message" layoutX="480.0" layoutY="94.0" wrappingWidth="109.0">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Text>
+    </children>
+</Pane>

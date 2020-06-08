@@ -3,6 +3,7 @@ package sample.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
@@ -11,7 +12,7 @@ import sample.services.RetetaService;
 
 public class AddController {
     @FXML
-    private Text registrationMessage;
+    private Text message;
     @FXML
     private TextField titluField;
     @FXML
@@ -23,17 +24,15 @@ public class AddController {
 
 
     public void handleAdaugaReteteButtonAction(ActionEvent actionEvent) throws Exception {
-
-
         System.out.println("AddController-> handleAdaugaReteteButtonAction");
         try {
             RetetaService.addReteta(titluField.getText(),ingredienteField.getText(),etapeCulinareField.getText(),timpPrepareField.getText());
-            registrationMessage.setText("Reteta adaugata cu succes!");
+            message.setText("Reteta adaugata cu succes!");
 
 
         } catch (RetetaAlreadyExistsException e) {
-            registrationMessage.setText(e.getMessage());
-            System.out.println("registration message: "+registrationMessage);
+            message.setText(e.getMessage());
+            System.out.println("registration message: "+message);
         }
 
     }

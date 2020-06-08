@@ -45,8 +45,5 @@ public class PaginaCursantController {
         this.telefon.setText("Numar de Telefon: "+cursant.getPhone());
         this.username.setText("Username: "+cursant.getUsername());
         this.rol.setText("Rol: "+cursant.getRole());
-
     }
-
-
 }

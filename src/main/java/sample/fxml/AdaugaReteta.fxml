@@ -17,11 +17,6 @@
             <Font name="Onyx" size="40.0" />
          </font>
       </Text>
-      <Button layoutX="499.0" layoutY="335.0" mnemonicParsing="false" onAction="#handleAdaugaReteteButtonAction" style="-fx-background-color: FCF;" text="Adauga">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
       <TextField fx:id="titluField" layoutX="14.0" layoutY="123.0" prefHeight="57.0" prefWidth="218.0" promptText="TitluReteta" style="-fx-background-color: transparent; -fx-border-color: FCF; -fx-border-width: 0px 0px 3px 0px;">
          <font>
             <Font size="25.0" />
@@ -43,9 +38,15 @@
          </font>
       </TextField>
       <TextFlow layoutX="224.0" layoutY="325.0" prefHeight="62.0" prefWidth="251.0" />
-      <Text fx:id="registrationMessage" layoutX="480.0" layoutY="94.0" wrappingWidth="109.0">
+      <Text fx:id="message" layoutX="480.0" layoutY="94.0" wrappingWidth="109.0">
          <font>
             <Font size="15.0" />
-         </font></Text>
+         </font>
+      </Text>
+      <Button layoutX="499.0" layoutY="335.0" mnemonicParsing="false" onAction="#handleAdaugaReteteButtonAction" style="-fx-background-color: FCF;" text="Adauga">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
    </children>
 </Pane>
