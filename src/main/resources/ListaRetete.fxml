@@ -19,7 +19,7 @@
         <font>
             <Font size="15.0" />
         </font></Button>
-    <Button fx:id="stergeReteta" layoutX="237.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleVizualizarePaginaReteta" style="-fx-background-color: E6E6FA;" text="Sterge">
+    <Button fx:id="stergeReteta" layoutX="237.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleStergeReteta" style="-fx-background-color: E6E6FA;" text="Sterge">
         <font>
             <Font size="15.0" />
         </font>

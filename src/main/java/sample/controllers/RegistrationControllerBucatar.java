@@ -97,7 +97,7 @@ public class RegistrationControllerBucatar {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-    public void handleSchimbaParola(ActionEvent actionEvent) throws IOException, JSONException {
+    public void handleSchimbaParola(ActionEvent actionEvent) throws IOException{
         Parent fxml = FXMLLoader.load(getClass().getResource("/SchimbaParola.fxml"));
         Scene scene = new Scene(fxml);
         //scene.setFill(Color.TRANSPARENT);

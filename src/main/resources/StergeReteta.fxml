@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.StergeRetetaController">
+   <children>
+      <Text layoutX="237.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Esti sigur ca vrei sa stergi aceasta reteta?" textAlignment="CENTER" wrappingWidth="313.13671875">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Text>
+      <Text fx:id="nume" layoutX="371.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="155.13671875" />
+      <Text fx:id="message" layoutX="371.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="155.13671875" />
+      <Button layoutX="222.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="33.0" prefWidth="67.0" text="Inapoi" />
+      <Button layoutX="438.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleStergeReteta" prefHeight="33.0" prefWidth="67.0" text="Sterge" />
+   </children>
+</AnchorPane>
