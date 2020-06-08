@@ -73,10 +73,9 @@ public class RetetaService {
 
     }
 
-
-
-    private static void checkRetetaDoesNotAlreadyExist(String nume) throws RetetaAlreadyExistsException {
+    public static void checkRetetaDoesNotAlreadyExist(String nume) throws Exception {
         System.out.println("RetetaService->checkRetetaDoesNotAlreadyExist()");
+        parcurgereListaRetete();
         for (Reteta reteta : retete) {
             if (nume.equals(reteta.getNume())) {
                 System.out.println("same reteta");
@@ -89,6 +88,19 @@ public class RetetaService {
         System.out.println("ReteteService->getListaRetete()");
         parcurgereListaRetete();
         return retete;
+    }
 
+    public static void editeazaReteta(String numeVechi,String nume, String ingrediente, String etapeCulinare, String timpDePrepare) throws Exception {
+        parcurgereListaRetete();
+        for(Reteta reteta : retete){
+            if(numeVechi.equals(reteta.getNume())){
+                reteta.setNume(nume);
+                reteta.setIngrediente(ingrediente);
+                reteta.setEtapeCulinare(etapeCulinare);
+                reteta.setTimpDePreparare(timpDePrepare);
+                writeJsonRetete("Retete.json");
+                break;
+            }
+        }
     }
 }

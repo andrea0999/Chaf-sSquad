@@ -12,7 +12,7 @@
             <Image url="@/PaginaPrincipalaBucatar.jpg" />
          </image></ImageView>
       <Button layoutX="451.0" layoutY="207.0" mnemonicParsing="false" text="Editeaza reteta" />
-      <Button fx:id="adaugaField" layoutX="451.0" layoutY="157.0" onAction="#handleAdaugaButtonAction" text=" Adauga reteta" />
+      <Button fx:id="adaugaField" layoutX="451.0" layoutY="157.0" onAction="#handleAdaugaReteta" text=" Adauga reteta" />
       <Button layoutX="451.0" layoutY="258.0" text="Sterge reteta" />
       <Button fx:id="listaRetete" layoutX="451.0" layoutY="108.0" onAction="#handleVizualizareRetete" text="Vizualizare retete" />
       <Button layoutX="307.0" layoutY="108.0" mnemonicParsing="false" text="Adauga Note" />

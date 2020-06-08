@@ -66,5 +66,38 @@ public class ListaReteteController {
         else
             message.setText("Va rugam selectati o reteta pentru vizualizare");
     }
+    @FXML
+    public void handleEditeazaReteta(ActionEvent actionEvent) throws IOException {
+        Reteta retetaSelectata = retetaTable.getSelectionModel().getSelectedItem();
+        EditeazaRetetaController pagina =new EditeazaRetetaController();
+        if(retetaSelectata!= null) {
+            System.out.println("ListaReteteController handleEditeazaReteta() reteta:"+retetaSelectata.getNume());
+            pagina.setReteta(retetaSelectata);
+            Parent fxml = FXMLLoader.load(getClass().getResource("/EditeazaReteta.fxml"));
+            Scene scene = new Scene(fxml);
+            //scene.setFill(Color.TRANSPARENT);
+            Stage primaryStage = new Stage();
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        }
+        else
+            message.setText("Va rugam selectati o reteta pentru editare");
+    }
+    public void handleStergeReteta(ActionEvent actionEvent) throws IOException {
+        Reteta retetaSelectata = retetaTable.getSelectionModel().getSelectedItem();
+        StergeRetetaController pagina =new StergeRetetaController();
+        if(retetaSelectata!= null) {
+            System.out.println("ListaReteteController handleEditeazaReteta() reteta:"+retetaSelectata.getNume());
+            pagina.setReteta(retetaSelectata);
+            Parent fxml = FXMLLoader.load(getClass().getResource("/StergeReteta.fxml"));
+            Scene scene = new Scene(fxml);
+            //scene.setFill(Color.TRANSPARENT);
+            Stage primaryStage = new Stage();
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        }
+        else
+            message.setText("Va rugam selectati o reteta pentru stergere");
+    }
 
 }

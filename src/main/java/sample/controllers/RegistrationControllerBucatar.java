@@ -63,9 +63,16 @@ public class RegistrationControllerBucatar {
             e.printStackTrace();
         }
     }
+    public void handleVizualizareRetete(ActionEvent actionEvent) throws IOException {
+        Parent fxml= FXMLLoader.load(getClass().getResource("/ListaRetete.fxml"));
+        Scene scene=new Scene(fxml);
+        //scene.setFill(Color.TRANSPARENT);
+        Stage primaryStage=new Stage();
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
 
-
-    public void handleAdaugaButtonAction(ActionEvent actionEvent) throws IOException {
+    public void handleAdaugaReteta(ActionEvent actionEvent) throws IOException {
         Parent fxml= FXMLLoader.load(getClass().getResource("/AdaugaReteta.fxml"));
         Scene scene=new Scene(fxml);
         //scene.setFill(Color.TRANSPARENT);
@@ -73,8 +80,9 @@ public class RegistrationControllerBucatar {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-    public void handleVizualizareRetete(ActionEvent actionEvent) throws IOException {
-        Parent fxml= FXMLLoader.load(getClass().getResource("/ListaRetete.fxml"));
+
+    public void handleEditeazaReteta(ActionEvent actionEvent) throws IOException {
+        Parent fxml= FXMLLoader.load(getClass().getResource("/EditeazaReteta.fxml"));
         Scene scene=new Scene(fxml);
         //scene.setFill(Color.TRANSPARENT);
         Stage primaryStage=new Stage();
