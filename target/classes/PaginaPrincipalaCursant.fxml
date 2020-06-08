@@ -17,11 +17,12 @@
       </Text>
       <ImageView fitHeight="410.0" fitWidth="600.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@PaginaPrincipalaCursant.jpg" />
+            <Image url="@/PaginaPrincipalaCursant.jpg" />
          </image>
       </ImageView>
       <Button layoutX="460.0" layoutY="97.0" mnemonicParsing="false" onAction="#handleVizualizareRetete" text="VizualizareRetete" />
       <Button layoutX="460.0" layoutY="149.0" mnemonicParsing="false" text="VizualizareSituatie" />
       <Button layoutX="460.0" layoutY="212.0" mnemonicParsing="false" text="RetetePreferate" />
+      <Button fx:id="schimbaParolaField" layoutX="481.0" layoutY="339.0" mnemonicParsing="false" onAction="#handleSchimbaParola" text="schimbaParola"/>
    </children>
 </Pane>

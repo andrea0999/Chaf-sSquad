@@ -9,6 +9,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.json.JSONException;
 import sample.exceptions.UsernameAlreadyExistsException;
 import sample.services.UserService;
 
@@ -58,6 +59,14 @@ public class RegistrationControllerCursant {
         Scene scene=new Scene(fxml);
         //scene.setFill(Color.TRANSPARENT);
         Stage primaryStage=new Stage();
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+    public void handleSchimbaParola(ActionEvent actionEvent) throws IOException, JSONException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("/SchimbaParola.fxml"));
+        Scene scene = new Scene(fxml);
+        //scene.setFill(Color.TRANSPARENT);
+        Stage primaryStage = new Stage();
         primaryStage.setScene(scene);
         primaryStage.show();
     }

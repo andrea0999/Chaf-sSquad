@@ -57,6 +57,9 @@ public class LoginController {
     @FXML
     public void handleLoginButtonAction(ActionEvent actionEvent) throws Exception {
         String username = usernameField.getText();
+        SchimbaParolaController userSchimbaParola = new SchimbaParolaController();
+        userSchimbaParola.setUsername(username);
+
         String password = passwordField.getText();
         String role = roleField.getValue().toString();
         System.out.println("LoginController handleLoginButtonAction() role="+role);
@@ -107,5 +110,7 @@ public class LoginController {
         }
 
     }
+
+
 }
 

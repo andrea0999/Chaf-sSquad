@@ -13,9 +13,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.entities.Cursant;
-import sample.entities.Reteta;
-import sample.entities.User;
-import sample.services.RetetaService;
 import sample.services.UserService;
 
 import java.io.IOException;
@@ -36,7 +33,7 @@ public class ListaCursantiController {
     @FXML
     public TableColumn<Cursant, String> cursantRolColumn;
 
-    private List<Cursant> listaCursanti = UserService.getListaUsers();
+    private List<Cursant> listaCursanti = UserService.getListaCursanti();
 
     public ListaCursantiController() throws Exception {
     }
@@ -73,5 +70,6 @@ public class ListaCursantiController {
         else
             message.setText("Va rugam selectati un cursant pentru vizualizare");
     }
+
 
 }

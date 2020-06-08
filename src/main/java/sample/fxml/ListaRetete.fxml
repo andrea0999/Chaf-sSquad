@@ -1,33 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: FFC;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ListaReteteController">
-    <children>
-
-        <BorderPane prefHeight="400.0" prefWidth="600.0">
-            <center>
-                <TableView fx:id="retetaTable" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: DDA0DD;" BorderPane.alignment="CENTER">
-                    <columns>
-                        <TableColumn fx:id="retetaNumeColumn" prefWidth="90.0" text="Nume" />
-                        <TableColumn fx:id="retetaTimpDePreparareColumn" prefWidth="125.0" text="Timp de prepaprare" />
-                    </columns>
-                </TableView>
-            </center>
-            <padding>
-                <Insets bottom="50.0" left="20.0" right="20.0" top="50.0" />
-            </padding>
-            <bottom>
-                <Button fx:id="vizualizarePaginaReteta" mnemonicParsing="false" onAction="#handleVizualizarePaginaReteta" style="-fx-background-color: E6E6FA;" text="Vizualizare" BorderPane.alignment="CENTER" />
-            </bottom>
-            <Text fx:id="message" layoutX="406.0" layoutY="340.0" wrappingWidth="176.0">
-                <font>
-                    <Font size="14.0" />
-                </font></Text>
-        </BorderPane>
-    </children>
+    <TableView fx:id="retetaTable" layoutX="35.0" layoutY="41.0" prefHeight="290.0" prefWidth="530.0" style="-fx-background-color: DDA0DD;" BorderPane.alignment="CENTER">
+        <columns>
+            <TableColumn fx:id="retetaNumeColumn" prefWidth="90.0" text="Nume" />
+            <TableColumn fx:id="retetaTimpDePreparareColumn" prefWidth="125.0" text="Timp de prepaprare" />
+        </columns>
+    </TableView>
+    <Button fx:id="vizualizarePaginaReteta" layoutX="255.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleVizualizarePaginaReteta" style="-fx-background-color: E6E6FA;" text="Vizualizare" BorderPane.alignment="CENTER">
+      <font>
+         <Font size="15.0" />
+      </font></Button>
 
 </AnchorPane>
