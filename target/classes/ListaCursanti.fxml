@@ -16,5 +16,6 @@
         </opaqueInsets>
     </TableView>
     <Button fx:id="vizualizarePaginaCursant" layoutX="264.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleVizualizarePaginaCursant" style="-fx-background-color: #00CC33;" text="Vizualizare" BorderPane.alignment="CENTER" />
+    <Button fx:id="adaugaNotaCursant" layoutX="29.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleAdaugaNotaCursant" style="-fx-background-color: #00CC33;" text="AdaugaNota" />
 
 </AnchorPane>
