@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -32,10 +33,11 @@ public class ListaReteteController {
     public TableColumn<Reteta, String> retetaTimpDePreparareColumn;
 
     private List<Reteta> listaRetete = RetetaService.getListaRetete();
+    public ListaReteteController() throws Exception {}
 
-    public ListaReteteController() throws Exception {
-    }
+    private static String userRole;
 
+    public static void setUserRole(String userRole) { ListaReteteController.userRole = userRole;}
 
     @FXML
     public void initialize()  {
@@ -43,10 +45,23 @@ public class ListaReteteController {
         retetaNumeColumn.setCellValueFactory(new PropertyValueFactory<>("nume"));
         retetaTimpDePreparareColumn.setCellValueFactory(new PropertyValueFactory<>("timpDePreparare"));
         retetaTable.setItems(retete);
+        ascundeButoaneCursanti();
     }
 
 
     private ObservableList<Reteta> retete = FXCollections.observableArrayList(listaRetete);
+
+    @FXML
+    private Button editeazaReteta=new Button();
+    @FXML
+    private Button stergeReteta=new Button();
+
+    public void ascundeButoaneCursanti(){
+        if(userRole.equals("Cursant")){
+            editeazaReteta.setVisible(false);
+            stergeReteta.setVisible(false);
+        }
+    }
 
     @FXML
     public void handleVizualizarePaginaReteta(ActionEvent actionEvent) throws IOException {
