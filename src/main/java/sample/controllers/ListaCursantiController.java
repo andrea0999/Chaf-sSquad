@@ -15,7 +15,9 @@ import javafx.stage.Stage;
 import sample.entities.Cursant;
 import sample.services.UserService;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 public class ListaCursantiController {
@@ -72,4 +74,23 @@ public class ListaCursantiController {
     }
 
 
+    public void handleAdaugaNotaCursant(ActionEvent actionEvent) throws IOException {
+        System.out.println("ListaCursantiController - handleAdaugaNotaCursant");
+        Cursant cursantSelectat = (Cursant) cursantTable.getSelectionModel().getSelectedItem();
+        AdaugaNotaController paginaC =new AdaugaNotaController();
+        if( cursantSelectat!= null) {
+            System.out.println("ListaCursantiController handleAdaugaNotaCursant() cursant:"+cursantSelectat.getFirstName());
+            paginaC.setCursant(cursantSelectat);
+            URL url = new File("src/main/java/sample/fxml/AdaugaNota.fxml").toURI().toURL();
+            Parent root = FXMLLoader.load(url);
+            //Parent fxml = FXMLLoader.load(getClass().getResource("/fxml/AdaugaNota.fxml"));
+            Scene scene = new Scene(root);
+            //scene.setFill(Color.TRANSPARENT);
+            Stage primaryStage = new Stage();
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        }
+        else
+            message.setText("Va rugam selectati un cursant pentru vizualizare");
+    }
 }

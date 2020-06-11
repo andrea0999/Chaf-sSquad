@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.AdaugaNotaController">
+    <children>
+        <ImageView fitHeight="416.0" fitWidth="600.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@/AdaugaNota.jpg" />
+            </image>
+        </ImageView>
+
+        <Text layoutX="133.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adauga Nota Cursantului" wrappingWidth="412.13671875">
+            <font>
+                <Font size="30.0" />
+            </font>
+        </Text>
+        <Text fx:id="username" layoutX="198.0" layoutY="196.0" text="user" wrappingWidth="187.00000047683716">
+            <font>
+                <Font size="15.0" />
+            </font></Text>
+        <Text fx:id="numeComplet" layoutX="198.0" layoutY="175.0" wrappingWidth="187.00000047683716">
+            <font>
+                <Font size="15.0" />
+            </font></Text>
+        <TextField fx:id="notaAdaugata" layoutX="198.0" layoutY="208.0" promptText="Nota">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </TextField>
+        <Button fx:id="buttonAdaugaNota" layoutX="240.0" layoutY="302.0" mnemonicParsing="false" onAction="#handleAdaugaNota" text="AdaugaNota">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Button>
+        <Text fx:id="message" layoutX="434.0" layoutY="129.0" wrappingWidth="140.99999916553497" />
+    </children>
+</AnchorPane>
