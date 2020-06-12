@@ -1,23 +1,30 @@
 package sample.controllers;
 
+import javafx.beans.value.ObservableStringValue;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.entities.Cursant;
+import sample.services.StatisticaNotaService;
 import sample.services.UserService;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
+import java.util.Observable;
 
 public class ListaCursantiController {
 
@@ -32,7 +39,11 @@ public class ListaCursantiController {
     @FXML
     public TableColumn<Cursant, String> cursantPrenumeColumn;
     @FXML
-    public TableColumn<Cursant, String> cursantRolColumn;
+    public TableColumn<Cursant, String> cursantMedieColumn;
+    @FXML
+    public TableColumn<Cursant, String> cursantValabilitateContColumn;
+    @FXML
+    private TextField cautareField;
 
     private List<Cursant> listaCursanti = UserService.getListaCursanti();
 
@@ -41,16 +52,60 @@ public class ListaCursantiController {
 
 
     @FXML
-    public void initialize()  {
+    public void initialize() throws Exception {
         System.out.println("ListaCursantiController initialize()");
+        setValabilitateText();
+        calculMedie();
+        cursantNumeColumn.setSortable(true);
+        cursantPrenumeColumn.setSortable(true);
         cursantNumeColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         cursantPrenumeColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        cursantRolColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
-        cursantTable.setItems(cursanti);
+        cursantMedieColumn.setCellValueFactory(new PropertyValueFactory<>("medie"));
+        cursantValabilitateContColumn.setCellValueFactory(new PropertyValueFactory<>("valabilitateText"));
+        FilteredList<Cursant> filteredData = new FilteredList<>(cursanti, p -> true);
+        cautareField.textProperty().addListener((observable, valoareVeche, valoareNoua) -> {
+            filteredData.setPredicate(cursant -> {
+                // If filter text is empty, display all.
+                if (valoareNoua == null || valoareNoua.isEmpty()) {
+                    return true;
+                }
+
+                // Compare name with filter text.
+                String lowerCaseFilter = valoareNoua.toLowerCase();
+
+                if (cursant.getFirstName().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches  firstname.
+                }else if (cursant.getLastName().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches  lastname.
+                }
+                return false; // Does not match.
+            });
+        });
+        // 3. Wrap the FilteredList in a SortedList.
+        SortedList<Cursant> sortedData = new SortedList<>(filteredData);
+
+        // 4. Bind the SortedList comparator to the TableView comparator.
+        sortedData.comparatorProperty().bind(cursantTable.comparatorProperty());
+
+        // 5. Add sorted (and filtered) data to the table.
+        cursantTable.setItems(sortedData);
     }
 
 
     private ObservableList<Cursant> cursanti = FXCollections.observableArrayList(listaCursanti);
+
+    public void setValabilitateText(){
+        for(Cursant c: cursanti)
+            if(c.getValabilitate()==1)
+                c.setValabilitateText("Activ");
+            else
+                c.setValabilitateText("Inactiv");
+    }
+
+    public void calculMedie() throws Exception {
+        for(Cursant c: cursanti)
+            c.setMedie(StatisticaNotaService.getMedieCursant(c.getUsername()));
+    }
 
     @FXML
     public void handleVizualizarePaginaCursant(ActionEvent actionEvent) throws IOException {

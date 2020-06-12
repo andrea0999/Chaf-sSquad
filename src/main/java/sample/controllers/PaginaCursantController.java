@@ -11,6 +11,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import sample.entities.Cursant;
 import sample.entities.Reteta;
+import sample.services.StatisticaNotaService;
 
 import java.io.IOException;
 
@@ -20,15 +21,15 @@ public class PaginaCursantController {
     @FXML
     private Text nume;
     @FXML
-    private Text prenume;
+    private Text username;
+    @FXML
+    private Text medie;
+    @FXML
+    private Text note;
     @FXML
     private Text email;
     @FXML
     private Text telefon;
-    @FXML
-    private Text username;
-    @FXML
-    private Text rol;
 
     private static Cursant cursant;
 
@@ -39,11 +40,16 @@ public class PaginaCursantController {
     @FXML
     public void initialize() throws Exception {
         System.out.println("PaginaCursantController initialize() cursant.getFirstName()=" +cursant.getFirstName());
-        this.nume.setText(cursant.getLastName());
-        this.prenume.setText(cursant.getFirstName());
-        this.email.setText("Adresa Email: "+cursant.getEmail());
-        this.telefon.setText("Numar de Telefon: "+cursant.getPhone());
+        this.nume.setText(cursant.getLastName()+" "+cursant.getFirstName());
         this.username.setText("Username: "+cursant.getUsername());
-        this.rol.setText("Rol: "+cursant.getRole());
+        if(StatisticaNotaService.getNoteCursant(cursant.getUsername()) != null){
+            this.note.setText("Note: " + StatisticaNotaService.getNoteCursant(cursant.getUsername()).toString().replace("[", "").replace("]", "").replace(",", ", "));
+        }
+        else {
+            this.note.setText("Note: -");
+        }
+        this.medie.setText("Medie: "+ StatisticaNotaService.getMedieCursant(cursant.getUsername()));
+        this.email.setText("Email: "+cursant.getEmail());
+        this.telefon.setText("Telefon: "+cursant.getPhone());
     }
 }
