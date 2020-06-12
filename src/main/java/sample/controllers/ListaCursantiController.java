@@ -43,8 +43,8 @@ public class ListaCursantiController {
     @FXML
     public void initialize()  {
         System.out.println("ListaCursantiController initialize()");
-        cursantNumeColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        cursantPrenumeColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        cursantNumeColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        cursantPrenumeColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         cursantRolColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
         cursantTable.setItems(cursanti);
     }

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.RegistrationControllerBucatar">
+   <children>
+      <ImageView fitHeight="346.0" fitWidth="600.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/PaginaPrincipalaBucatar.jpg" />
+         </image></ImageView>
+      <Button fx:id="adaugaReteta" layoutX="19.0" layoutY="167.0" onAction="#handleAdaugaReteta" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: black;" text=" Adauga reteta" textAlignment="CENTER" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/addRecipe.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Button>
+      <Button fx:id="listaRetete" layoutX="18.0" layoutY="105.0" onAction="#handleVizualizareRetete" prefHeight="47.0" prefWidth="200.0" style="-fx-background-color: black;" text="Toate retetele" textAlignment="CENTER" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="36.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/recipeBook.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="schimbaParolaField" layoutX="19.0" layoutY="327.0" mnemonicParsing="false" onAction="#handleSchimbaParola" prefHeight="47.0" prefWidth="200.0" style="-fx-background-color: black;" text="Schimba parola" textAlignment="CENTER" textFill="WHITE" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/changePassword.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="listaCursanti" layoutX="19.0" layoutY="227.0" mnemonicParsing="false" onAction="#handleVizualizareCursanti" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: black;" text="Toti cursantii" textAlignment="CENTER" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/vizualizareCursanti.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font></Button>
+      <Text fill="#fffafa" layoutX="121.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activitati Bucatar" textAlignment="CENTER" wrappingWidth="387.625">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>
