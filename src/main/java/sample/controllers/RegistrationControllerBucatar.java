@@ -9,7 +9,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import org.json.JSONException;
+import sample.entities.Bucatar;
 import sample.entities.Curs;
 import sample.exceptions.UsernameAlreadyExistsException;
 import sample.services.UserService;
@@ -40,6 +40,9 @@ public class RegistrationControllerBucatar {
     @FXML
     private TextField cost;
 
+    private static Bucatar bucatar;
+
+    public static void setBucatar(Bucatar bucatar) { RegistrationControllerBucatar.bucatar = bucatar; }
 
     @FXML
     public void handleRegisterBucatar() throws IOException {
@@ -64,6 +67,7 @@ public class RegistrationControllerBucatar {
         }
     }
     public void handleVizualizareRetete(ActionEvent actionEvent) throws IOException {
+        ListaReteteController.setUserRole("Bucatar");
         Parent fxml= FXMLLoader.load(getClass().getResource("/ListaRetete.fxml"));
         Scene scene=new Scene(fxml);
         //scene.setFill(Color.TRANSPARENT);

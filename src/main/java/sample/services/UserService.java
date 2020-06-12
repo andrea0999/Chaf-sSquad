@@ -188,5 +188,20 @@ public class UserService {
             }
         }
     }
+    public static Bucatar getBucatarByUsername(String username) throws Exception {
+        parcurgereListaUsers();
+        for(User user: users)
+            if(user.getUsername().equals(username))
+                return (Bucatar)user;
+            return null;
+    }
+    public static Cursant getCursantByUsername(String username) throws Exception {
+        parcurgereListaUsers();
+        for(User user: users)
+            if(user.getUsername().equals(username))
+                return (Cursant)user;
+        return null;
+    }
+
 }
 

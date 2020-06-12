@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.json.JSONException;
+import sample.entities.Cursant;
 import sample.exceptions.UsernameAlreadyExistsException;
 import sample.services.UserService;
 
@@ -31,6 +32,9 @@ public class RegistrationControllerCursant {
     @FXML
     private TextField phone;
 
+    private static Cursant cursant;
+
+    public static void setCursant(Cursant cursant) { RegistrationControllerCursant.cursant = cursant; }
 
     @FXML
     public void handleRegisterCursant() throws IOException {
@@ -55,6 +59,7 @@ public class RegistrationControllerCursant {
     }
 
     public void handleVizualizareRetete(ActionEvent actionEvent) throws IOException {
+        ListaReteteController.setUserRole("Cursant");
         Parent fxml= FXMLLoader.load(getClass().getResource("/ListaRetete.fxml"));
         Scene scene=new Scene(fxml);
         //scene.setFill(Color.TRANSPARENT);

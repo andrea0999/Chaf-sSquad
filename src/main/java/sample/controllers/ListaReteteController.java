@@ -2,13 +2,17 @@ package sample.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -25,28 +29,67 @@ public class ListaReteteController {
 
     @FXML
     public TableView<Reteta> retetaTable;
-
     @FXML
     public TableColumn<Reteta, String> retetaNumeColumn;
     @FXML
     public TableColumn<Reteta, String> retetaTimpDePreparareColumn;
+    @FXML
+    private TextField cautareField;
 
     private List<Reteta> listaRetete = RetetaService.getListaRetete();
+    public ListaReteteController() throws Exception {}
+    private ObservableList<Reteta> retete = FXCollections.observableArrayList(listaRetete);
 
-    public ListaReteteController() throws Exception {
-    }
+    private static String userRole;
 
+    public static void setUserRole(String userRole) { ListaReteteController.userRole = userRole;}
 
     @FXML
     public void initialize()  {
         System.out.println("ListaReteteController initialize()");
         retetaNumeColumn.setCellValueFactory(new PropertyValueFactory<>("nume"));
         retetaTimpDePreparareColumn.setCellValueFactory(new PropertyValueFactory<>("timpDePreparare"));
-        retetaTable.setItems(retete);
+       // retetaTable.setItems(retete);
+        ascundeButoaneCursanti();
+        FilteredList<Reteta> filteredData = new FilteredList<>(retete, p -> true);
+        cautareField.textProperty().addListener((observable, valoareVeche, valoareNoua) -> {
+            filteredData.setPredicate(reteta -> {
+                // If filter text is empty, display all.
+                if (valoareNoua == null || valoareNoua.isEmpty()) {
+                    return true;
+                }
+
+                // Compare name with filter text.
+                String lowerCaseFilter = valoareNoua.toLowerCase();
+
+                if (reteta.getNume().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches  name.
+                }
+                return false; // Does not match.
+            });
+        });
+        // 3. Wrap the FilteredList in a SortedList.
+        SortedList<Reteta> sortedData = new SortedList<>(filteredData);
+
+        // 4. Bind the SortedList comparator to the TableView comparator.
+        sortedData.comparatorProperty().bind(retetaTable.comparatorProperty());
+
+        // 5. Add sorted (and filtered) data to the table.
+        retetaTable.setItems(sortedData);
     }
 
 
-    private ObservableList<Reteta> retete = FXCollections.observableArrayList(listaRetete);
+    @FXML
+    private Button editeazaReteta=new Button();
+    @FXML
+    private Button stergeReteta=new Button();
+
+    public void ascundeButoaneCursanti(){
+        if(userRole.equals("Cursant")){
+            editeazaReteta.setVisible(false);
+            stergeReteta.setVisible(false);
+        }
+    }
 
     @FXML
     public void handleVizualizarePaginaReteta(ActionEvent actionEvent) throws IOException {
