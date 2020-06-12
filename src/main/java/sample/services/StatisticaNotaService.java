@@ -3,8 +3,8 @@ package sample.services;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import sample.entities.Reteta;
 import sample.entities.StatisticaNote;
+import sample.entities.User;
 import sample.exceptions.NumarMaximDeNoteAtinsException;
 
 import java.io.FileReader;
@@ -96,6 +96,13 @@ public class StatisticaNotaService {
                     writeJsonStatisticaNote("StatisticaNote.json");
             }
         }
+    }
+
+    public static List<StatisticaNote>  getListaStatistica() throws Exception {
+        System.out.println("StatisticaNoteService->getListaStatistica()");
+        parcurgereStatisticaNote();
+        return statistica;
+
     }
 
 }
