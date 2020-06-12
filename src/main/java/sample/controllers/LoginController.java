@@ -30,6 +30,8 @@ public class LoginController {
     @FXML
     private ChoiceBox roleField;
 
+
+
     @FXML
     public void initialize(){
         roleField.setValue("Cursant");
@@ -59,6 +61,9 @@ public class LoginController {
         String username = usernameField.getText();
         SchimbaParolaController userSchimbaParola = new SchimbaParolaController();
         userSchimbaParola.setUsername(username);
+
+        SituatieNoteController userStatisticaNote = new SituatieNoteController();
+        userStatisticaNote.setUsername(username);
 
         String password = passwordField.getText();
         String role = roleField.getValue().toString();

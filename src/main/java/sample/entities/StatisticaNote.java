@@ -17,8 +17,8 @@ public class StatisticaNote {
         double sum=0;
         for(Double nota : note)
             sum+=nota;
-
-        return medie = sum/note.size();
+        medie = sum/note.size();
+        return medie ;
     }
 
     public String getUsername() {
