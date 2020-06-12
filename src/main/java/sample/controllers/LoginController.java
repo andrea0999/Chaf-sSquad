@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import sample.exceptions.ContCursantInactivException;
 import sample.services.UserService;
 
 import java.io.IOException;
@@ -78,35 +79,42 @@ public class LoginController {
             return;
         }
 
-        if(UserService.checkCredentiale(username,password,role)  && role.equals("Bucatar") ){
-            loginMessage.setText("Autentificare cu succes");
-            try {
-                Parent fxml= FXMLLoader.load(getClass().getResource("/PaginaPrincipalaBucatar.fxml"));
-                Scene scene=new Scene(fxml);
-                scene.setFill(Color.TRANSPARENT);
-                Stage primaryStage=new Stage();
-                primaryStage.setScene(scene);
-                primaryStage.show();
-            }catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        else {
-            if(UserService.checkCredentiale(username,password,role) && role.equals("Cursant")){
+        if(role.equals("Bucatar") ) {
+            if (UserService.checkCredentiale(username, password, role)) {
                 loginMessage.setText("Autentificare cu succes");
                 try {
-                    Parent fxml= FXMLLoader.load(getClass().getResource("/PaginaPrincipalaCursant.fxml"));
-                    Scene scene=new Scene(fxml);
+                    Parent fxml = FXMLLoader.load(getClass().getResource("/PaginaPrincipalaBucatar.fxml"));
+                    Scene scene = new Scene(fxml);
                     scene.setFill(Color.TRANSPARENT);
-                    Stage primaryStage=new Stage();
+                    Stage primaryStage = new Stage();
                     primaryStage.setScene(scene);
                     primaryStage.show();
-                }catch (IOException e) {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }
-            else
+            } else
                 loginMessage.setText("Incorrect login!");
+        }
+        else {
+            try{
+                if(UserService.checkCredentiale(username,password,role) && role.equals("Cursant")){
+                    loginMessage.setText("Autentificare cu succes");
+                    try {
+                        Parent fxml= FXMLLoader.load(getClass().getResource("/PaginaPrincipalaCursant.fxml"));
+                        Scene scene=new Scene(fxml);
+                        scene.setFill(Color.TRANSPARENT);
+                        Stage primaryStage=new Stage();
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
+                    }catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                else
+                    loginMessage.setText("Incorrect login!");
+            }catch (ContCursantInactivException e1) {
+                loginMessage.setText(e1.getMessage());
+            }
         }
 
     }

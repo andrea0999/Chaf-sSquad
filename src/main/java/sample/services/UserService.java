@@ -1,9 +1,11 @@
 package sample.services;
 
+import com.sun.org.apache.xml.internal.security.keys.ContentHandlerAlreadyRegisteredException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import sample.entities.*;
+import sample.exceptions.ContCursantInactivException;
 import sample.exceptions.UsernameAlreadyExistsException;
 
 import java.io.FileReader;
@@ -40,7 +42,7 @@ public class UserService {
                 JSONObject userJson = iterator.next();
                 System.out.println("UserService parcurgereListaUsers() role="+userJson.get("role").toString());
                 if(userJson.get("role").toString().equals("Cursant")) {
-                     u = new Cursant(userJson.get("firstname").toString(), userJson.get("lastname").toString(),userJson.get("email").toString(), userJson.get("phone").toString(),userJson.get("username").toString(), userJson.get("password").toString(),userJson.get("role").toString());
+                     u = new Cursant(userJson.get("firstname").toString(), userJson.get("lastname").toString(),userJson.get("email").toString(), userJson.get("phone").toString(),userJson.get("username").toString(), userJson.get("password").toString(),userJson.get("role").toString(),Integer.parseInt(userJson.get("valabilitate").toString()));
                 } else {
                     JSONObject cursJson = (JSONObject) userJson.get("Curs");
                     Curs c = new Curs(cursJson.get("titlu").toString(), cursJson.get("descriere").toString(), Double.parseDouble(cursJson.get("cost").toString()), Integer.parseInt(cursJson.get("nrParticipanti").toString()));
@@ -56,13 +58,15 @@ public class UserService {
         for(User user : users){
             JSONObject sampleObject = new JSONObject();
             if(user.getRole().equals("Cursant")){
-                sampleObject.put("firstname", user.getFirstName());
-                sampleObject.put("lastname", user.getLastName());
-                sampleObject.put("email", user.getEmail());
-                sampleObject.put("phone", user.getPhone());
-                sampleObject.put("username", user.getUsername());
-                sampleObject.put("password", user.getPassword());
-                sampleObject.put("role", user.getRole());
+                Cursant c =(Cursant) user;
+                sampleObject.put("firstname", c.getFirstName());
+                sampleObject.put("lastname", c.getLastName());
+                sampleObject.put("email", c.getEmail());
+                sampleObject.put("phone", c.getPhone());
+                sampleObject.put("username", c.getUsername());
+                sampleObject.put("password", c.getPassword());
+                sampleObject.put("role", c.getRole());
+                sampleObject.put("valabilitate", c.getValabilitate());
                 listaUsers.add(sampleObject);
             }
             else{
@@ -137,9 +141,21 @@ public class UserService {
     public static boolean checkCredentiale(String username,String password,String role) throws Exception {
         parcurgereListaUsers();
         for (User user : users) {
+
             if (Objects.equals(username, user.getUsername()) && Objects.equals(encodePassword(username, password), user.getPassword()) && Objects.equals(role, user.getRole())) {
-                System.out.println("UserService checkCredentiale() login acces true");
-                return true;
+                if(role.equals("Cursant")) {
+                    Cursant c = (Cursant) user;
+                    if(c.getValabilitate() == 1){
+                        System.out.println("UserService checkCredentiale() login acces true");
+                        return true;
+                    }
+                    else
+                        throw new ContCursantInactivException(c.getUsername());
+                }
+                else {
+                    System.out.println("UserService checkCredentiale() login acces true");
+                    return true;
+                }
             }
         }
         return false;
@@ -168,7 +184,7 @@ public class UserService {
         for(User user : users){
             if(user.getUsername().equals(username)){
                 user.setPassword(encodePassword(username,password));
-                writeJsonUsers("users.json");
+                writeJsonUsers("Users.json");
             }
         }
     }

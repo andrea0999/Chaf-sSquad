@@ -52,7 +52,6 @@ public class AdaugaNotaController {
            message.setText("Te rog introdu o nota");
        }catch (NumarMaximDeNoteAtinsException x){
            message.setText(x.getMessage());
-
        }
 
 

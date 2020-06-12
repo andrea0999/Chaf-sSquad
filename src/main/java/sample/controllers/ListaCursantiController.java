@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -35,21 +36,33 @@ public class ListaCursantiController {
     @FXML
     public TableColumn<Cursant, String> cursantRolColumn;
 
+    @FXML
+    private Button valabilitateContCursant;
+
     private List<Cursant> listaCursanti = UserService.getListaCursanti();
 
     public ListaCursantiController() throws Exception {
     }
 
+    public void valabilitateButonText(Cursant c){
+        System.out.println("ListaCursantiController valabilitateButonText() cursant:"+c.getFirstName());
+        if(c.getValabilitate() == 1)
+            valabilitateContCursant.setText("Dezactiveaza cont");
+        else
+            valabilitateContCursant.setText("Activeaza cont");
+    }
 
     @FXML
     public void initialize()  {
         System.out.println("ListaCursantiController initialize()");
-
         cursantNumeColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         cursantPrenumeColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         cursantRolColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
-
         cursantTable.setItems(cursanti);
+        Cursant cursantSelectat = (Cursant) cursantTable.getSelectionModel().getSelectedItem();
+        if( cursantSelectat!= null) {
+            valabilitateButonText(cursantSelectat);
+        }
     }
 
 
@@ -81,16 +94,14 @@ public class ListaCursantiController {
         if( cursantSelectat!= null) {
             System.out.println("ListaCursantiController handleAdaugaNotaCursant() cursant:"+cursantSelectat.getFirstName());
             paginaC.setCursant(cursantSelectat);
-            URL url = new File("src/main/java/sample/fxml/AdaugaNota.fxml").toURI().toURL();
-            Parent root = FXMLLoader.load(url);
-            //Parent fxml = FXMLLoader.load(getClass().getResource("/fxml/AdaugaNota.fxml"));
-            Scene scene = new Scene(root);
+            Parent fxml = FXMLLoader.load(getClass().getResource("/AdaugaNota.fxml"));
+            Scene scene = new Scene(fxml);
             //scene.setFill(Color.TRANSPARENT);
             Stage primaryStage = new Stage();
             primaryStage.setScene(scene);
             primaryStage.show();
         }
         else
-            message.setText("Va rugam selectati un cursant pentru vizualizare");
+            message.setText("Va rugam selectati un cursant pentru a-i da o nota");
     }
 }
