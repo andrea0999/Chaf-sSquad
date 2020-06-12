@@ -102,7 +102,23 @@ public class StatisticaNotaService {
         System.out.println("StatisticaNoteService->getListaStatistica()");
         parcurgereStatisticaNote();
         return statistica;
+    }
 
+    public static double getMedieCursant(String username) throws Exception {
+        parcurgereStatisticaNote();
+        for(StatisticaNote st: statistica){
+            if(st.getUsername().equals(username))
+                return st.calculMedie();
+        }
+        return 0.0;
+    }
+    public static ArrayList<Double> getNoteCursant(String username) throws Exception {
+        parcurgereStatisticaNote();
+        for(StatisticaNote st: statistica){
+            if(st.getUsername().equals(username))
+                return st.getNote();
+        }
+        return null;
     }
 
 }

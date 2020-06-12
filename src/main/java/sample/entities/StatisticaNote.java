@@ -1,12 +1,13 @@
 package sample.entities;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class StatisticaNote {
 
     private String username;
     private ArrayList<Double> note;
-    private  double medie;
+    private  double medie=0.0;
 
     public StatisticaNote(String username, ArrayList<Double> note) {
         this.username = username;
@@ -14,11 +15,12 @@ public class StatisticaNote {
     }
 
     public double calculMedie(){
+        DecimalFormat df = new DecimalFormat("#.##");
         double sum=0;
         for(Double nota : note)
             sum+=nota;
         medie = sum/note.size();
-        return medie ;
+        return Double.parseDouble(df.format(medie));
     }
 
     public String getUsername() {
@@ -36,4 +38,12 @@ public class StatisticaNote {
     public void setNote(ArrayList<Double> note) {
         this.note = note;
     }
+
+    public String toString(){
+        String s= "";
+        for(Double nota: note)
+            s+=nota+" ";
+        return s;
+    }
+
 }

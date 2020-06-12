@@ -1,7 +1,11 @@
 package sample.controllers;
 
+import javafx.beans.value.ObservableStringValue;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,16 +13,18 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.entities.Cursant;
+import sample.services.StatisticaNotaService;
 import sample.services.UserService;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.List;
+import java.util.Objects;
+import java.util.Observable;
 
 public class ListaCursantiController {
 
@@ -33,7 +39,11 @@ public class ListaCursantiController {
     @FXML
     public TableColumn<Cursant, String> cursantPrenumeColumn;
     @FXML
-    public TableColumn<Cursant, String> cursantRolColumn;
+    public TableColumn<Cursant, String> cursantMedieColumn;
+    @FXML
+    public TableColumn<Cursant, String> cursantValabilitateContColumn;
+    @FXML
+    private TextField cautareField;
 
     private List<Cursant> listaCursanti = UserService.getListaCursanti();
 
@@ -42,18 +52,60 @@ public class ListaCursantiController {
 
 
     @FXML
-    public void initialize()  {
+    public void initialize() throws Exception {
         System.out.println("ListaCursantiController initialize()");
+        setValabilitateText();
+        calculMedie();
+        cursantNumeColumn.setSortable(true);
+        cursantPrenumeColumn.setSortable(true);
+        cursantNumeColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        cursantPrenumeColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        cursantMedieColumn.setCellValueFactory(new PropertyValueFactory<>("medie"));
+        cursantValabilitateContColumn.setCellValueFactory(new PropertyValueFactory<>("valabilitateText"));
+        FilteredList<Cursant> filteredData = new FilteredList<>(cursanti, p -> true);
+        cautareField.textProperty().addListener((observable, valoareVeche, valoareNoua) -> {
+            filteredData.setPredicate(cursant -> {
+                // If filter text is empty, display all.
+                if (valoareNoua == null || valoareNoua.isEmpty()) {
+                    return true;
+                }
 
-        cursantNumeColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        cursantPrenumeColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        cursantRolColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
+                // Compare name with filter text.
+                String lowerCaseFilter = valoareNoua.toLowerCase();
 
-        cursantTable.setItems(cursanti);
+                if (cursant.getFirstName().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches  firstname.
+                }else if (cursant.getLastName().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches  lastname.
+                }
+                return false; // Does not match.
+            });
+        });
+        // 3. Wrap the FilteredList in a SortedList.
+        SortedList<Cursant> sortedData = new SortedList<>(filteredData);
+
+        // 4. Bind the SortedList comparator to the TableView comparator.
+        sortedData.comparatorProperty().bind(cursantTable.comparatorProperty());
+
+        // 5. Add sorted (and filtered) data to the table.
+        cursantTable.setItems(sortedData);
     }
 
 
     private ObservableList<Cursant> cursanti = FXCollections.observableArrayList(listaCursanti);
+
+    public void setValabilitateText(){
+        for(Cursant c: cursanti)
+            if(c.getValabilitate()==1)
+                c.setValabilitateText("Activ");
+            else
+                c.setValabilitateText("Inactiv");
+    }
+
+    public void calculMedie() throws Exception {
+        for(Cursant c: cursanti)
+            c.setMedie(StatisticaNotaService.getMedieCursant(c.getUsername()));
+    }
 
     @FXML
     public void handleVizualizarePaginaCursant(ActionEvent actionEvent) throws IOException {
@@ -75,22 +127,37 @@ public class ListaCursantiController {
 
 
     public void handleAdaugaNotaCursant(ActionEvent actionEvent) throws IOException {
-        System.out.println("ListaCursantiController - handleAdaugaNotaCursant");
+        System.out.println("ListaCursantiController - handleAdaugaNotaCursant()");
         Cursant cursantSelectat = (Cursant) cursantTable.getSelectionModel().getSelectedItem();
         AdaugaNotaController paginaC =new AdaugaNotaController();
         if( cursantSelectat!= null) {
             System.out.println("ListaCursantiController handleAdaugaNotaCursant() cursant:"+cursantSelectat.getFirstName());
             paginaC.setCursant(cursantSelectat);
-            URL url = new File("src/main/java/sample/fxml/AdaugaNota.fxml").toURI().toURL();
-            Parent root = FXMLLoader.load(url);
-            //Parent fxml = FXMLLoader.load(getClass().getResource("/fxml/AdaugaNota.fxml"));
-            Scene scene = new Scene(root);
+            Parent fxml = FXMLLoader.load(getClass().getResource("/AdaugaNota.fxml"));
+            Scene scene = new Scene(fxml);
             //scene.setFill(Color.TRANSPARENT);
             Stage primaryStage = new Stage();
             primaryStage.setScene(scene);
             primaryStage.show();
         }
         else
-            message.setText("Va rugam selectati un cursant pentru vizualizare");
+            message.setText("Va rugam selectati un cursant pentru a-i da o nota");
+    }
+    public void handleSchimbaValabilitateContCursant(ActionEvent actionEvent) throws IOException {
+        System.out.println("ListaCursantiController - handleSchimbaValabilitateContCursant()");
+        Cursant cursantSelectat = (Cursant) cursantTable.getSelectionModel().getSelectedItem();
+        SchimbaValabilitateContController pagina =new SchimbaValabilitateContController();
+        if( cursantSelectat!= null) {
+            System.out.println("ListaCursantiController handleAdaugaNotaCursant() cursant:"+cursantSelectat.getFirstName());
+            pagina.setCursant(cursantSelectat);
+            Parent fxml = FXMLLoader.load(getClass().getResource("/SchimbaValabilitateContCursant.fxml"));
+            Scene scene = new Scene(fxml);
+            //scene.setFill(Color.TRANSPARENT);
+            Stage primaryStage = new Stage();
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        }
+        else
+            message.setText("Va rugam selectati un cursant pentru a-i activa/dezactiva contul");
     }
 }

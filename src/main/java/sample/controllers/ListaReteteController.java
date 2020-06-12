@@ -49,10 +49,9 @@ public class ListaReteteController {
         System.out.println("ListaReteteController initialize()");
         retetaNumeColumn.setCellValueFactory(new PropertyValueFactory<>("nume"));
         retetaTimpDePreparareColumn.setCellValueFactory(new PropertyValueFactory<>("timpDePreparare"));
-       // retetaTable.setItems(retete);
         ascundeButoaneCursanti();
         FilteredList<Reteta> filteredData = new FilteredList<>(retete, p -> true);
-        cautareField.textProperty().addListener((observable, valoareVeche, valoareNoua) -> {
+                cautareField.textProperty().addListener((observable, valoareVeche, valoareNoua) -> {
             filteredData.setPredicate(reteta -> {
                 // If filter text is empty, display all.
                 if (valoareNoua == null || valoareNoua.isEmpty()) {

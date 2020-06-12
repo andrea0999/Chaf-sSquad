@@ -22,7 +22,6 @@ public class AdaugaNotaController {
     @FXML
     private Text message;
 
-    //private  static StatisticaNote statistica = new StatisticaNote()
     private static Cursant cursant;
 
     public static void setCursant(Cursant cursant) {
@@ -32,11 +31,9 @@ public class AdaugaNotaController {
 
     @FXML
     public void initialize() throws Exception {
-        //System.out.println("AdaugaNotaController initialize() cursant.getNume()=" +cursant.getFirstName());
         this.numeComplet.setText(cursant.getFirstName() +" "+ cursant.getLastName());
         this.username.setText("Username: "+cursant.getUsername());
     }
-
 
 
     public void handleAdaugaNota(ActionEvent actionEvent) throws Exception {
@@ -47,15 +44,10 @@ public class AdaugaNotaController {
            }
            else
                message.setText("Introdu o nota in intervalul 1-10");
-
        } catch(NumberFormatException e){
            message.setText("Te rog introdu o nota");
        }catch (NumarMaximDeNoteAtinsException x){
            message.setText(x.getMessage());
-
        }
-
-
-
     }
 }
