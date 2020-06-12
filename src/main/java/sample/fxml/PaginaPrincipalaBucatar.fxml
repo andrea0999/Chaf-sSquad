@@ -7,13 +7,13 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.RegistrationControllerBucatar">
    <children>
-      <ImageView fitHeight="346.0" fitWidth="600.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="346.0" fitWidth="600.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../resources/PaginaPrincipalaBucatar.jpg" />
          </image></ImageView>
-      <Button fx:id="adaugaReteta" layoutX="16.0" layoutY="196.0" onAction="#handleAdaugaReteta" prefHeight="53.0" prefWidth="200.0" style="-fx-background-color: black;" text=" Adauga reteta" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="adaugaReteta" layoutX="19.0" layoutY="167.0" onAction="#handleAdaugaReteta" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: black;" text=" Adauga reteta" textAlignment="CENTER" textFill="WHITE">
          <graphic>
-            <ImageView fitHeight="43.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../resources/addRecipe.png" />
                </image>
@@ -22,9 +22,9 @@
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
-      <Button fx:id="listaRetete" layoutX="14.0" layoutY="114.0" onAction="#handleVizualizareRetete" prefHeight="53.0" prefWidth="200.0" style="-fx-background-color: black;" text="Toate retetele" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="listaRetete" layoutX="18.0" layoutY="105.0" onAction="#handleVizualizareRetete" prefHeight="47.0" prefWidth="200.0" style="-fx-background-color: black;" text="Toate retetele" textAlignment="CENTER" textFill="WHITE">
          <graphic>
-            <ImageView fitHeight="46.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="36.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../resources/recipeBook.png" />
                </image>
@@ -34,21 +34,20 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="451.0" layoutY="268.0" mnemonicParsing="false" text="InactivitateCursant" />
-       <Button fx:id="schimbaParolaField" layoutX="188.0" layoutY="336.0" mnemonicParsing="false" onAction="#handleSchimbaParola" prefHeight="55.0" prefWidth="211.0" style="-fx-background-color: black;" text="Schimba parola" textAlignment="CENTER" textFill="WHITE" BorderPane.alignment="CENTER">
+      <Button fx:id="schimbaParolaField" layoutX="19.0" layoutY="327.0" mnemonicParsing="false" onAction="#handleSchimbaParola" prefHeight="47.0" prefWidth="200.0" style="-fx-background-color: black;" text="Schimba parola" textAlignment="CENTER" textFill="WHITE" BorderPane.alignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="47.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../resources/changePassword.png" />
                </image>
             </ImageView>
          </graphic></Button>
-       <Button fx:id="listaCursanti" layoutX="383.0" layoutY="113.0" mnemonicParsing="false" onAction="#handleVizualizareCursanti" style="-fx-background-color: black;" text="Toti cursantii" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="listaCursanti" layoutX="19.0" layoutY="227.0" mnemonicParsing="false" onAction="#handleVizualizareCursanti" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: black;" text="Toti cursantii" textAlignment="CENTER" textFill="WHITE">
          <graphic>
-            <ImageView fitHeight="43.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../resources/vizualizareCursanti.png" />
                </image>

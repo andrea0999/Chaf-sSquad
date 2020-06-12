@@ -16,9 +16,7 @@ import javafx.stage.Stage;
 import sample.entities.Cursant;
 import sample.services.UserService;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.List;
 
 public class ListaCursantiController {
@@ -36,21 +34,11 @@ public class ListaCursantiController {
     @FXML
     public TableColumn<Cursant, String> cursantRolColumn;
 
-    @FXML
-    private Button valabilitateContCursant;
-
     private List<Cursant> listaCursanti = UserService.getListaCursanti();
 
     public ListaCursantiController() throws Exception {
     }
 
-    public void valabilitateButonText(Cursant c){
-        System.out.println("ListaCursantiController valabilitateButonText() cursant:"+c.getFirstName());
-        if(c.getValabilitate() == 1)
-            valabilitateContCursant.setText("Dezactiveaza cont");
-        else
-            valabilitateContCursant.setText("Activeaza cont");
-    }
 
     @FXML
     public void initialize()  {
@@ -59,10 +47,6 @@ public class ListaCursantiController {
         cursantPrenumeColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         cursantRolColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
         cursantTable.setItems(cursanti);
-        Cursant cursantSelectat = (Cursant) cursantTable.getSelectionModel().getSelectedItem();
-        if( cursantSelectat!= null) {
-            valabilitateButonText(cursantSelectat);
-        }
     }
 
 
@@ -88,7 +72,7 @@ public class ListaCursantiController {
 
 
     public void handleAdaugaNotaCursant(ActionEvent actionEvent) throws IOException {
-        System.out.println("ListaCursantiController - handleAdaugaNotaCursant");
+        System.out.println("ListaCursantiController - handleAdaugaNotaCursant()");
         Cursant cursantSelectat = (Cursant) cursantTable.getSelectionModel().getSelectedItem();
         AdaugaNotaController paginaC =new AdaugaNotaController();
         if( cursantSelectat!= null) {
@@ -103,5 +87,22 @@ public class ListaCursantiController {
         }
         else
             message.setText("Va rugam selectati un cursant pentru a-i da o nota");
+    }
+    public void handleSchimbaValabilitateContCursant(ActionEvent actionEvent) throws IOException {
+        System.out.println("ListaCursantiController - handleSchimbaValabilitateContCursant()");
+        Cursant cursantSelectat = (Cursant) cursantTable.getSelectionModel().getSelectedItem();
+        SchimbaValabilitateContController pagina =new SchimbaValabilitateContController();
+        if( cursantSelectat!= null) {
+            System.out.println("ListaCursantiController handleAdaugaNotaCursant() cursant:"+cursantSelectat.getFirstName());
+            pagina.setCursant(cursantSelectat);
+            Parent fxml = FXMLLoader.load(getClass().getResource("/SchimbaValabilitateContCursant.fxml"));
+            Scene scene = new Scene(fxml);
+            //scene.setFill(Color.TRANSPARENT);
+            Stage primaryStage = new Stage();
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        }
+        else
+            message.setText("Va rugam selectati un cursant pentru a-i activa/dezactiva contul");
     }
 }

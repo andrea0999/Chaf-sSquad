@@ -203,5 +203,16 @@ public class UserService {
         return null;
     }
 
+    public static void schimbaValabilitateContCursant(String username, int valabilitate) throws Exception {
+        parcurgereListaUsers();
+        for(User user : users){
+            if(user.getUsername().equals(username)){
+                Cursant c = (Cursant) user;
+                c.setValabilitate(valabilitate);
+                writeJsonUsers("Users.json");
+            }
+        }
+    }
+
 }
 
