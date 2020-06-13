@@ -4,7 +4,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import sample.entities.StatisticaNote;
-import sample.entities.User;
 import sample.exceptions.NumarMaximDeNoteAtinsException;
 
 import java.io.FileReader;
