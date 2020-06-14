@@ -75,11 +75,15 @@ public class LoginController {
     @FXML
     public void handleLoginButtonAction(ActionEvent actionEvent) throws Exception {
         String username = usernameField.getText();
+
         SchimbaParolaController userSchimbaParola = new SchimbaParolaController();
         userSchimbaParola.setUsername(username);
 
         SituatieNoteController userStatisticaNote = new SituatieNoteController();
         userStatisticaNote.setUsername(username);
+
+        AdaugaRetetaFavoritaController userAdaugaRetetaFavorita = new AdaugaRetetaFavoritaController();
+        userAdaugaRetetaFavorita.setUsername(username);
 
         String password = passwordField.getText();
         String role = roleField.getValue().toString();

@@ -11,6 +11,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.json.JSONException;
 import sample.entities.Cursant;
+import sample.exceptions.NuExistaReteteFavorite;
 import sample.exceptions.UsernameAlreadyExistsException;
 import sample.services.UserService;
 
@@ -117,4 +118,29 @@ public class RegistrationControllerCursant {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-}
+
+    public void handleAdaugaReteteFavorite(ActionEvent actionEvent) throws IOException {
+        URL url = new File("src/main/java/sample/fxml/AdaugaRetetaFavorita.fxml").toURI().toURL();
+        Parent root = FXMLLoader.load(url);
+        //Parent fxml = FXMLLoader.load(getClass().getResource("/SituatieNoteCursant.fxml"));
+        Scene scene = new Scene(root);
+        //scene.setFill(Color.TRANSPARENT);
+        Stage primaryStage = new Stage();
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public void handleVizualizareReteteFavorite(ActionEvent actionEvent) throws Exception {
+
+            URL url = new File("src/main/java/sample/fxml/ListaReteteFavorite.fxml").toURI().toURL();
+            Parent root = FXMLLoader.load(url);
+            //Parent fxml = FXMLLoader.load(getClass().getResource("/SituatieNoteCursant.fxml"));
+            Scene scene = new Scene(root);
+            //scene.setFill(Color.TRANSPARENT);
+            Stage primaryStage = new Stage();
+            primaryStage.setScene(scene);
+            primaryStage.show();
+            }
+
+    }
+
