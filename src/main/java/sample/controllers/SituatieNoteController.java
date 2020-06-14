@@ -31,16 +31,17 @@ public class SituatieNoteController {
     @FXML
     public void initialize() throws Exception {
         System.out.println("SituatieNoteController initialize() ");
+        Boolean ok=false;
         for (StatisticaNote st : statistica) {
-            if (st.getUsername().equals(username) && StatisticaNotaService.getNoteCursant(username) != null) {
-                //this.listaNote.setText("Note:" +st.getNote());
-                //this.medieNote.setText("Medie: " +st.calculMedie());
-                this.listaNote.setText("Note: " + StatisticaNotaService.getNoteCursant(username).toString().replace("[", "").replace("]", "").replace(",", ", "));
-            } else {
-                System.out.println("SituatieNoteController-initializare-else");
+            if (st.getUsername().equals(username) &&  StatisticaNotaService.getNoteCursant(username) != null) {
+                    this.listaNote.setText("Note: " + StatisticaNotaService.getNoteCursant(username).toString().replace("[", "").replace("]", "").replace(",", ", "));
+                     this.medieNote.setText("Medie: " + StatisticaNotaService.getMedieCursant(username));
+                    ok = true;
+            }
+            if(ok==false){
+                this.medieNote.setText("Medie: " + StatisticaNotaService.getMedieCursant(username));
                 this.listaNote.setText("Note: -");
             }
-            this.medieNote.setText("Medie: " + StatisticaNotaService.getMedieCursant(username));
 
         }
     }
