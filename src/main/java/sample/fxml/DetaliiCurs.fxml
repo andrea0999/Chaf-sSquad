@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #7dd587;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.DetaliiCursController">
+   <children>
+      <ImageView fitHeight="421.0" fitWidth="658.0" layoutX="-6.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/DetaliiCurs.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="172.0" fitWidth="260.0" layoutX="332.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/Chef.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="33.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vrei sa devii un bucatar desavarsit?  Numele tau ar arata bine printre numele marilor chefi?  Vino in echipa noastra si descopera-ti talentele culinare ascunse. Participa la curs!" textAlignment="CENTER" wrappingWidth="568.357421875">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="titlu" fill="GOLD" layoutX="55.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="506.69482421875">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font></Text>
+      <Text fx:id="descriere" fill="#7dd587" layoutX="15.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="622.3574259281158">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Text>
+      <Text fx:id="cost" fill="#90201a" layoutX="11.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="387.8417968150461">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Text>
+      <Text fx:id="nrParticipanti" fill="#7dd587" layoutX="10.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="313.841796875">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Text>
+      <Button fx:id="creareContCursant" layoutX="129.0" layoutY="354.0" mnemonicParsing="false" onAction="#creazaInregistrareCursant" style="-fx-background-color: #dab709;" text="INSCRIERE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

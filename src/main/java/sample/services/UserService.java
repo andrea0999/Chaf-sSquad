@@ -187,13 +187,13 @@ public class UserService {
             }
         }
     }
-    public static Bucatar getBucatarByUsername(String username) throws Exception {
+   /* public static Bucatar getBucatarByUsername(String username) throws Exception {
         parcurgereListaUsers();
         for(User user: users)
             if(user.getUsername().equals(username))
                 return (Bucatar)user;
             return null;
-    }
+    }*/
     public static Cursant getCursantByUsername(String username) throws Exception {
         parcurgereListaUsers();
         for(User user: users)
@@ -211,6 +211,25 @@ public class UserService {
                 writeJsonUsers("Users.json");
             }
         }
+    }
+    public static Bucatar getBucatar() throws Exception {
+        parcurgereListaUsers();
+        for(User user : users){
+            if(user.getRole().equals("Bucatar")){
+                Bucatar bucatar= (Bucatar) user;
+                return bucatar;
+            }
+        }
+        return null;
+    }
+
+    public static int getNrCursanti() throws Exception {
+        parcurgereListaUsers();
+        int count= 0;
+        for(User user : users)
+            if(user.getRole().equals("Cursant"))
+               count++;
+        return count;
     }
 
 }

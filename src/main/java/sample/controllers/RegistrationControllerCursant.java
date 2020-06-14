@@ -46,6 +46,30 @@ public class RegistrationControllerCursant {
     @FXML
     public void handleRegisterCursant() throws IOException {
         System.out.println("RegistrationControllerCursant->handleRegisterAction");
+        if (firstname.getText() == null || firstname.getText().isEmpty()) {
+            registrationMessage.setText("Introduceti prenumele!");
+            return;
+        }
+        if (lastname.getText() == null || lastname.getText().isEmpty()) {
+            registrationMessage.setText("Introduceti numele!");
+            return;
+        }
+        if (username.getText() == null || username.getText().isEmpty()) {
+            registrationMessage.setText("Introduceti un nume de utilizator!");
+            return;
+        }
+        if (password.getText() == null || password.getText().isEmpty()) {
+            registrationMessage.setText("Introduceti parola!");
+            return;
+        }
+        if (email.getText() == null || email.getText().isEmpty()) {
+            registrationMessage.setText("Introduceti emailul!");
+            return;
+        }
+        if (phone.getText() == null || phone.getText().isEmpty()) {
+            registrationMessage.setText("Introduceti numarul de telefon!");
+            return;
+        }
         try {
             UserService.addCursant(lastname.getText(),firstname.getText(), email.getText(), phone.getText(), username.getText(), password.getText(),"Cursant" );
             registrationMessage.setText("Account created successfully!");

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #a3030a;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.NuMaiSuntLocuriController">
+    <children>
+        <ImageView fitHeight="445.0" fitWidth="333.0" layoutX="288.0" layoutY="-40.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../resources/NuMaiSuntLocuri.png" />
+            </image>
+        </ImageView>
+        <Text layoutX="36.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ne pare foarte rau, dar numarul maxim de participanti la curs a fost atins. Incearca sesiunea viitoare!" textAlignment="CENTER" wrappingWidth="220.13671875">
+            <font>
+                <Font name="System Bold" size="23.0" />
+            </font>
+        </Text>
+    </children>
+</AnchorPane>

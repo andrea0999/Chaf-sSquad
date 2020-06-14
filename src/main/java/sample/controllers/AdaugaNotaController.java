@@ -43,9 +43,9 @@ public class AdaugaNotaController {
                StatisticaNotaService.adaugaNota(cursant.getUsername(),Double.parseDouble(notaAdaugata.getText()));
            }
            else
-               message.setText("Introdu o nota in intervalul 1-10");
+               message.setText("Va rugam introduceti o nota in intervalul 1-10!");
        } catch(NumberFormatException e){
-           message.setText("Te rog introdu o nota");
+           message.setText("Va rugam introduceti o nota!");
        }catch (NumarMaximDeNoteAtinsException x){
            message.setText(x.getMessage());
        }

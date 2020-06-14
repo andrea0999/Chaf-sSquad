@@ -7,46 +7,45 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.AddController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="400.0" fitWidth="600.0" opacity="0.52" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../resources/App.jpg" />
+            <Image url="@../../../resources/AdaugaReteta.jpg" />
          </image>
       </ImageView>
-      <Text fill="#12b217" layoutX="21.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Formular Adaugare Reteta" wrappingWidth="266.9140625">
+      <Text fill="#0d6b0e" layoutX="21.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Formular   Adaugare   Reteta" textAlignment="CENTER" wrappingWidth="311.9140625">
          <font>
-            <Font name="Onyx" size="40.0" />
+            <Font name="Onyx" size="42.0" />
          </font>
       </Text>
-      <TextField fx:id="titluField" layoutX="14.0" layoutY="123.0" prefHeight="57.0" prefWidth="218.0" promptText="TitluReteta" style="-fx-background-color: transparent; -fx-border-color: FCF; -fx-border-width: 0px 0px 3px 0px;">
+      <TextField fx:id="titluField" layoutX="14.0" layoutY="86.0" prefHeight="62.0" prefWidth="561.0" promptText="Titlu reteta" style="-fx-background-color: transparent; -fx-border-color: #0d6b0e; -fx-border-width: 0px 0px 3px 0px;">
          <font>
             <Font size="25.0" />
          </font>
       </TextField>
-      <TextField fx:id="ingredienteField" layoutX="14.0" layoutY="180.0" prefHeight="57.0" prefWidth="218.0" promptText="Ingrediente" style="-fx-background-color: transparent; -fx-border-color: FCF; -fx-border-width: 0px 0px 3px 0px;">
+      <TextField fx:id="ingredienteField" layoutX="14.0" layoutY="164.0" prefHeight="62.0" prefWidth="561.0" promptText="Ingrediente" style="-fx-background-color: transparent; -fx-border-color: #0d6b0e; -fx-border-width: 0px 0px 3px 0px;">
          <font>
             <Font size="25.0" />
          </font>
       </TextField>
-      <TextField fx:id="etapeCulinareField" layoutX="14.0" layoutY="237.0" prefHeight="57.0" prefWidth="218.0" promptText="EtapeCulinare" style="-fx-background-color: transparent; -fx-border-color: FCF; -fx-border-width: 0px 0px 3px 0px;">
+      <TextField fx:id="etapeCulinareField" layoutX="13.0" layoutY="247.0" prefHeight="57.0" prefWidth="561.0" promptText="Etape culinare" style="-fx-background-color: transparent; -fx-border-color: #0d6b0e; -fx-border-width: 0px 0px 3px 0px;">
          <font>
             <Font size="25.0" />
          </font>
       </TextField>
-      <TextField fx:id="timpPrepareField" layoutX="14.0" layoutY="294.0" prefHeight="57.0" prefWidth="218.0" promptText="TimpPreparare" style="-fx-background-color: transparent; -fx-border-color: FCF; -fx-border-width: 0px 0px 3px 0px;">
+      <TextField fx:id="timpPrepareField" layoutX="14.0" layoutY="308.0" prefHeight="57.0" prefWidth="274.0" promptText="Timp de preparare" style="-fx-background-color: transparent; -fx-border-color: #0d6b0e; -fx-border-width: 0px 0px 3px 0px;">
          <font>
             <Font size="25.0" />
          </font>
       </TextField>
-      <TextFlow layoutX="224.0" layoutY="325.0" prefHeight="62.0" prefWidth="251.0" />
+      <Button layoutX="407.0" layoutY="334.0" mnemonicParsing="false" onAction="#handleAdaugaReteteButtonAction" style="-fx-background-color: #0d6b0e;" text="ADAUGA" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
       <Text fx:id="message" layoutX="480.0" layoutY="94.0" wrappingWidth="109.0">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Button layoutX="499.0" layoutY="335.0" mnemonicParsing="false" onAction="#handleAdaugaReteteButtonAction" style="-fx-background-color: FCF;" text="Adauga">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
    </children>
 </Pane>

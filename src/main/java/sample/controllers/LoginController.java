@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import sample.entities.Bucatar;
 import sample.exceptions.ContCursantInactivException;
 import sample.services.UserService;
 
@@ -31,7 +32,9 @@ public class LoginController {
     @FXML
     private ChoiceBox roleField;
 
+    private static Bucatar bucatar;
 
+    public static void setBucatar(Bucatar bucatar) { LoginController.bucatar = bucatar; }
 
     @FXML
     public void initialize(){
@@ -47,13 +50,25 @@ public class LoginController {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-    public void creazaInregistrareCursant(ActionEvent actionEvent) throws IOException {
-        Parent fxml= FXMLLoader.load(getClass().getResource("/RegisterPeople.fxml"));
-        Scene scene=new Scene(fxml);
-        scene.setFill(Color.TRANSPARENT);
-        Stage primaryStage=new Stage();
-        primaryStage.setScene(scene);
-        primaryStage.show();
+    public void creazaInregistrareCursant(ActionEvent actionEvent) throws Exception {
+        int catiParticipantiMomentan=UserService.getNrCursanti();
+        if(this.bucatar.getCurs().getNrParticipanti() != catiParticipantiMomentan) {
+            Parent fxml = FXMLLoader.load(getClass().getResource("/RegisterPeople.fxml"));
+            Scene scene = new Scene(fxml);
+            scene.setFill(Color.TRANSPARENT);
+            Stage primaryStage = new Stage();
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        }
+        else{
+            Parent fxml = FXMLLoader.load(getClass().getResource("/NuMaiSuntLocuri.fxml"));
+            Scene scene = new Scene(fxml);
+            scene.setFill(Color.TRANSPARENT);
+            Stage primaryStage = new Stage();
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        }
+
     }
 
 
