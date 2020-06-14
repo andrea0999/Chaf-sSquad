@@ -1,7 +1,5 @@
 package sample.controllers;
 
-import com.sun.javaws.IconUtil;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,15 +8,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import org.json.JSONException;
-import sample.entities.Cursant;
-import sample.exceptions.NuExistaReteteFavorite;
 import sample.exceptions.UsernameAlreadyExistsException;
 import sample.services.UserService;
-
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 
 public class RegistrationControllerCursant {
     @FXML
