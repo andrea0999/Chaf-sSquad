@@ -19,7 +19,6 @@
       </Text>
       <Button layoutX="460.0" layoutY="97.0" mnemonicParsing="false" onAction="#handleVizualizareRetete" text="VizualizareRetete" />
       <Button layoutX="460.0" layoutY="149.0" mnemonicParsing="false" onAction="#handleVizualizareSituatieNote" text="VizualizareSituatie" />
-      <Button layoutX="460.0" layoutY="212.0" mnemonicParsing="false" onAction="#handleAdaugaReteteFavorite" text="RetetePreferate" />
       <Button fx:id="schimbaParolaField" layoutX="481.0" layoutY="339.0" mnemonicParsing="false" onAction="#handleSchimbaParola" text="schimbaParola" />
       <Button layoutX="418.0" layoutY="269.0" mnemonicParsing="false" onAction="#handleVizualizareReteteFavorite" text="VizualizareReteteFavorite" />
 

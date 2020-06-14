@@ -1,5 +1,6 @@
 package sample.controllers;
 
+import com.sun.javaws.IconUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -91,14 +92,15 @@ public class RegistrationControllerCursant {
     }
 
     public void handleVizualizareRetete(ActionEvent actionEvent) throws IOException {
-        ListaReteteController.setUserRole("Cursant");
-        Parent fxml= FXMLLoader.load(getClass().getResource("/ListaRetete.fxml"));
+        ListaReteteCursantiController.setUsername(cursant.getUsername());
+        Parent fxml= FXMLLoader.load(getClass().getResource("/ListaReteteCursanti.fxml"));
         Scene scene=new Scene(fxml);
         //scene.setFill(Color.TRANSPARENT);
         Stage primaryStage=new Stage();
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
     public void handleSchimbaParola(ActionEvent actionEvent) throws IOException, JSONException {
         Parent fxml = FXMLLoader.load(getClass().getResource("/SchimbaParola.fxml"));
         Scene scene = new Scene(fxml);
@@ -109,38 +111,25 @@ public class RegistrationControllerCursant {
     }
 
     public void handleVizualizareSituatieNote(ActionEvent actionEvent) throws IOException {
-        URL url = new File("src/main/java/sample/fxml/SituatieNoteCursant.fxml").toURI().toURL();
-        Parent root = FXMLLoader.load(url);
-        //Parent fxml = FXMLLoader.load(getClass().getResource("/SituatieNoteCursant.fxml"));
-        Scene scene = new Scene(root);
+        Parent fxml= FXMLLoader.load(getClass().getResource("/SituatieNoteCursanti.fxml"));
+        Scene scene=new Scene(fxml);
         //scene.setFill(Color.TRANSPARENT);
-        Stage primaryStage = new Stage();
+        Stage primaryStage=new Stage();
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
-    public void handleAdaugaReteteFavorite(ActionEvent actionEvent) throws IOException {
-        URL url = new File("src/main/java/sample/fxml/AdaugaRetetaFavorita.fxml").toURI().toURL();
-        Parent root = FXMLLoader.load(url);
-        //Parent fxml = FXMLLoader.load(getClass().getResource("/SituatieNoteCursant.fxml"));
-        Scene scene = new Scene(root);
-        //scene.setFill(Color.TRANSPARENT);
-        Stage primaryStage = new Stage();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
 
     public void handleVizualizareReteteFavorite(ActionEvent actionEvent) throws Exception {
-
-            URL url = new File("src/main/java/sample/fxml/ListaReteteFavorite.fxml").toURI().toURL();
-            Parent root = FXMLLoader.load(url);
-            //Parent fxml = FXMLLoader.load(getClass().getResource("/SituatieNoteCursant.fxml"));
-            Scene scene = new Scene(root);
-            //scene.setFill(Color.TRANSPARENT);
-            Stage primaryStage = new Stage();
-            primaryStage.setScene(scene);
-            primaryStage.show();
-            }
+        System.out.println("usernameeeeee="+cursant.getUsername());
+        ListaReteteFavoriteController.setUsername(cursant.getUsername());
+        Parent fxml = FXMLLoader.load(getClass().getResource("/ListaReteteFavorite.fxml"));
+        Scene scene = new Scene(fxml);
+        //scene.setFill(Color.TRANSPARENT);
+        Stage primaryStage = new Stage();
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
 
     }
 

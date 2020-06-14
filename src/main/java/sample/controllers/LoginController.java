@@ -82,7 +82,7 @@ public class LoginController {
         SituatieNoteController userStatisticaNote = new SituatieNoteController();
         userStatisticaNote.setUsername(username);
 
-        AdaugaRetetaFavoritaController userAdaugaRetetaFavorita = new AdaugaRetetaFavoritaController();
+        ListaReteteCursantiController userAdaugaRetetaFavorita = new ListaReteteCursantiController();
         userAdaugaRetetaFavorita.setUsername(username);
 
         String password = passwordField.getText();
@@ -122,6 +122,7 @@ public class LoginController {
         else {
             try{
                 if(UserService.checkCredentiale(username,password,role) && role.equals("Cursant")){
+                    RegistrationControllerCursant.setCursant(UserService.getCursantByUsername(username));
                     loginMessage.setText("Autentificare cu succes");
                     try {
                         Parent fxml= FXMLLoader.load(getClass().getResource("/PaginaPrincipalaCursant.fxml"));
