@@ -71,14 +71,14 @@ public class SchimbaParolaController {
                             }
                         }
                         else{
-                            message.setText("Parola noua nu este aceeasi in ambele campuri; Incercati din nou");
+                            message.setText("Parola noua nu corespunde cu confirmarea ei. Va rugam reincercati!");
                         }
                     }
                     else
-                        message.setText("Aceasta parola este o parola veche; Introduceti alta!");
+                        message.setText("Parola noua este o parola pe care ati mai folosit-o. Va rugam introduceti alta!");
             }
                 else
-                    message.setText("Parola veche incorecta; Reincercati");
+                    message.setText("Parola actuala este incorecta. Va rugam reincercati!");
 
             }
         }

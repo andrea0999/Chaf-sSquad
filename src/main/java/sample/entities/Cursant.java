@@ -5,6 +5,7 @@ public class Cursant extends User {
     private int valabilitate;                        //0-cont dezactivat, 1- cont activ
     private String valabilitateText="";
     private double medie=0.0;
+    private int nrNote=0;
 
     public Cursant(String firstName, String lastName, String email, String phone, String username, String password, String role) {
         super(firstName, lastName, email, phone, username, password, role);
@@ -24,4 +25,7 @@ public class Cursant extends User {
 
     public double getMedie() { return medie; }
     public void setMedie(double medie) { this.medie = medie; }
+
+    public int getNrNote() { return nrNote; }
+    public void setNrNote(int nrNote) { this.nrNote = nrNote; }
 }

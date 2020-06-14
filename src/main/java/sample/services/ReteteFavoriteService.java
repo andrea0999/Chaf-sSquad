@@ -7,6 +7,7 @@ import sample.entities.Reteta;
 import sample.entities.RetetaFavorita;
 import sample.entities.StatisticaNote;
 import sample.exceptions.NumarMaximDeNoteAtinsException;
+import sample.exceptions.RetetaDejaFavoritaException;
 
 import java.io.FileReader;
 import java.nio.file.Files;
@@ -76,14 +77,14 @@ public class ReteteFavoriteService {
             for (RetetaFavorita x : reteteFavorite) {
                 System.out.println("ReteteFavoriteService-adaugaRetetaFavorita-for "+ x.getUsername());
                 if (x.getUsername().equals(username)) {
-                    //if (x.getNote().size() > 5)
-                       // throw new NumarMaximDeNoteAtinsException(username);
-                   // else {
+                    if (x.getReteteFavorite().contains(reteta))
+                       throw new RetetaDejaFavoritaException(reteta);
+                    else {
                         x.getReteteFavorite().add(reteta);
                         System.out.println("adaugaRetetaFavorita -if - listaRetete " + x.getReteteFavorite());
-                    writeJsonReteteFavorite("ReteteFavorite.json");
-                        gasit=true;
-                  //  }
+                        writeJsonReteteFavorite("ReteteFavorite.json");
+                        gasit = true;
+                    }
 
                 }
             }
@@ -97,11 +98,6 @@ public class ReteteFavoriteService {
         }
     }
 
-   /* public static List<RetetaFavorita>  getListaReteteFavorite() throws Exception {
-        System.out.println("ReteteFavoriteService->getListaReteteFavorite()");
-        parcurgereReteteFavorite();
-        return reteteFavorite;
-    }*/
     public static ArrayList<String> getReteteFavorite(String username) throws Exception {
         parcurgereReteteFavorite();
         for(RetetaFavorita rf: reteteFavorite){

@@ -5,62 +5,60 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<!-- alignment="TOP_CENTER"  prefHeight="69.0" prefWidth="600.0"-->
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: FFC;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.RegistrationControllerCursant">
-    <children>
-      <ImageView fitHeight="294.0" fitWidth="600.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
-         <image>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.RegistrationControllerCursant">
+<children>
+    <ImageView fitHeight="294.0" fitWidth="600.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+        <image>
             <Image url="@../../../resources/cursant.jpg" />
-         </image>
-      </ImageView>
-
-        
-        <Text layoutX="161.0" layoutY="49.0" style="-fx-background-color: FFC;" text="Inregistrare" AnchorPane.leftAnchor="161.0" AnchorPane.rightAnchor="160.435546875" AnchorPane.topAnchor="14.0">
-            <font>
-                <Font name="Castellar" size="35.0" />
-            </font>
-        </Text>
-        <TextField fx:id="firstname" layoutX="29.0" layoutY="94.0" promptText="Nume" style="-fx-border-color: FF9;">
-            <font>
-                <Font size="15.0" />
-            </font>
-        </TextField>
-        <TextField fx:id="lastname" layoutX="29.0" layoutY="127.0" promptText="Prenume" style="-fx-border-color: FF9;">
-            <font>
-                <Font size="15.0" />
-            </font>
-        </TextField>
-        <TextField fx:id="username" layoutX="29.0" layoutY="160.0" promptText="UserName" style="-fx-border-color: FF9;">
-            <font>
-                <Font size="15.0" />
-            </font>
-        </TextField>
-        <PasswordField fx:id="password" layoutX="29.0" layoutY="193.0" promptText="Password" style="-fx-border-color: FF9;">
-            <font>
-                <Font size="15.0" />
-            </font>
-        </PasswordField>
-        <TextField fx:id="email" layoutX="29.0" layoutY="226.0" promptText="Email" style="-fx-border-color: FF9;">
-            <font>
-                <Font size="15.0" />
-            </font>
-        </TextField>
-        <TextField fx:id="phone" layoutX="29.0" layoutY="259.0" promptText="Telefon" style="-fx-border-color: FF9;">
-            <font>
-                <Font size="15.0" />
-            </font>
-        </TextField>
+        </image>
+    </ImageView>
 
 
+    <Text fill="WHITE" layoutX="161.0" layoutY="49.0" style="-fx-background-color: FFC;" text="Inregistrare" AnchorPane.leftAnchor="161.0" AnchorPane.rightAnchor="160.435546875" AnchorPane.topAnchor="14.0">
+        <font>
+            <Font name="Castellar" size="35.0" />
+        </font>
+    </Text>
+    <TextField fx:id="firstname" layoutX="29.0" layoutY="94.0" promptText="Nume" style="-fx-border-color: FF9;">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </TextField>
+    <TextField fx:id="lastname" layoutX="29.0" layoutY="127.0" promptText="Prenume" style="-fx-border-color: FF9;">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </TextField>
+    <TextField fx:id="username" layoutX="29.0" layoutY="160.0" promptText="Username" style="-fx-border-color: FF9;">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </TextField>
+    <PasswordField fx:id="password" layoutX="29.0" layoutY="193.0" promptText="Parola" style="-fx-border-color: FF9;">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </PasswordField>
+    <TextField fx:id="email" layoutX="29.0" layoutY="226.0" promptText="Email" style="-fx-border-color: FF9;">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </TextField>
+    <TextField fx:id="phone" layoutX="29.0" layoutY="259.0" promptText="Telefon" style="-fx-border-color: FF9;">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </TextField>
+    <Button fx:id="inregistrare" layoutX="124.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleRegisterCursant" style="-fx-background-color: WHITE;" text="Inregistrare">
+        <font>
+            <Font name="System Bold" size="15.0" />
+        </font>
+    </Button>
+    <TextFlow layoutX="224.0" layoutY="325.0" prefHeight="62.0" prefWidth="251.0" />
+    <Text fx:id="registrationMessage" fill="RED" layoutX="427.0" layoutY="108.0" wrappingWidth="148.0">
+        <font>
+            <Font name="System Bold" size="18.0" />
+        </font></Text>
 
-        <Button fx:id="inregistrare" layoutX="124.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleRegisterCursant" style="-fx-background-color: FFC;" text="Inregistrare">
-            <font>
-                <Font name="Belwe Lt BT Light" size="15.0" />
-            </font>
-        </Button>
-        <TextFlow layoutX="224.0" layoutY="325.0" prefHeight="62.0" prefWidth="251.0" />
-        <Text fx:id="registrationMessage" layoutX="440.0" layoutY="107.0" wrappingWidth="109.0" />
-
-    </children>
+</children>
 </AnchorPane>

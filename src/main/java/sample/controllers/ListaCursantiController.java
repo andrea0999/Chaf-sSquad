@@ -22,6 +22,7 @@ import sample.services.StatisticaNotaService;
 import sample.services.UserService;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Observable;
@@ -38,6 +39,8 @@ public class ListaCursantiController {
     public TableColumn<Cursant, String> cursantNumeColumn;
     @FXML
     public TableColumn<Cursant, String> cursantPrenumeColumn;
+    @FXML
+    public TableColumn<Cursant, String> cursantNrNoteColumn;
     @FXML
     public TableColumn<Cursant, String> cursantMedieColumn;
     @FXML
@@ -56,10 +59,10 @@ public class ListaCursantiController {
         System.out.println("ListaCursantiController initialize()");
         setValabilitateText();
         calculMedie();
-        cursantNumeColumn.setSortable(true);
-        cursantPrenumeColumn.setSortable(true);
+        numarNoteCursant();
         cursantNumeColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         cursantPrenumeColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        cursantNrNoteColumn.setCellValueFactory(new PropertyValueFactory<>("nrNote"));
         cursantMedieColumn.setCellValueFactory(new PropertyValueFactory<>("medie"));
         cursantValabilitateContColumn.setCellValueFactory(new PropertyValueFactory<>("valabilitateText"));
         FilteredList<Cursant> filteredData = new FilteredList<>(cursanti, p -> true);
@@ -105,6 +108,15 @@ public class ListaCursantiController {
     public void calculMedie() throws Exception {
         for(Cursant c: cursanti)
             c.setMedie(StatisticaNotaService.getMedieCursant(c.getUsername()));
+    }
+
+    public void numarNoteCursant() throws Exception {
+        for(Cursant c: cursanti){
+            ArrayList<Double> note =StatisticaNotaService.getNoteCursant(c.getUsername());
+            if(note != null)
+                c.setNrNote(note.size());
+        }
+
     }
 
     @FXML

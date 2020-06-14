@@ -20,6 +20,8 @@ public class RegistrationControllerBucatar {
     @FXML
     private Text registrationMessage;
     @FXML
+    private Text numeBucatar;
+    @FXML
     private TextField nume;
     @FXML
     private TextField prenume;
@@ -43,6 +45,12 @@ public class RegistrationControllerBucatar {
     private static Bucatar bucatar;
 
     public static void setBucatar(Bucatar bucatar) { RegistrationControllerBucatar.bucatar = bucatar; }
+
+    @FXML
+    public void initialize(){
+        if(bucatar != null)
+             numeBucatar.setText("Chef "+bucatar.getLastName()+" "+bucatar.getFirstName());
+    }
 
     @FXML
     public void handleRegisterBucatar() throws IOException {
