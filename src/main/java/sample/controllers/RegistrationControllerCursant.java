@@ -37,14 +37,6 @@ public class RegistrationControllerCursant {
     private TextField phone;
 
 
-    private static Cursant cursant;
-
-    public RegistrationControllerCursant() throws Exception {
-    }
-
-    public static void setCursant(Cursant cursant) { RegistrationControllerCursant.cursant = cursant; }
-
-
     @FXML
     public void handleRegisterCursant() throws IOException {
         System.out.println("RegistrationControllerCursant->handleRegisterAction");
@@ -73,63 +65,23 @@ public class RegistrationControllerCursant {
             return;
         }
         try {
-            UserService.addCursant(lastname.getText(),firstname.getText(), email.getText(), phone.getText(), username.getText(), password.getText(),"Cursant" );
+            UserService.addCursant(lastname.getText(), firstname.getText(), email.getText(), phone.getText(), username.getText(), password.getText(), "Cursant");
             registrationMessage.setText("Account created successfully!");
 
-            Parent fxml= FXMLLoader.load(getClass().getResource("/login.fxml"));
-            Scene scene=new Scene(fxml);
+            Parent fxml = FXMLLoader.load(getClass().getResource("/login.fxml"));
+            Scene scene = new Scene(fxml);
             //scene.setFill(Color.TRANSPARENT);
-            Stage primaryStage=new Stage();
+            Stage primaryStage = new Stage();
             primaryStage.setScene(scene);
             primaryStage.show();
 
         } catch (UsernameAlreadyExistsException e) {
-           registrationMessage.setText(e.getMessage());
-            System.out.println("registration message: "+registrationMessage);
+            registrationMessage.setText(e.getMessage());
+            System.out.println("registration message: " + registrationMessage);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void handleVizualizareRetete(ActionEvent actionEvent) throws IOException {
-        ListaReteteCursantiController.setUsername(cursant.getUsername());
-        Parent fxml= FXMLLoader.load(getClass().getResource("/ListaReteteCursanti.fxml"));
-        Scene scene=new Scene(fxml);
-        //scene.setFill(Color.TRANSPARENT);
-        Stage primaryStage=new Stage();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    public void handleSchimbaParola(ActionEvent actionEvent) throws IOException, JSONException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("/SchimbaParola.fxml"));
-        Scene scene = new Scene(fxml);
-        //scene.setFill(Color.TRANSPARENT);
-        Stage primaryStage = new Stage();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    public void handleVizualizareSituatieNote(ActionEvent actionEvent) throws IOException {
-        Parent fxml= FXMLLoader.load(getClass().getResource("/SituatieNoteCursanti.fxml"));
-        Scene scene=new Scene(fxml);
-        //scene.setFill(Color.TRANSPARENT);
-        Stage primaryStage=new Stage();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-
-    public void handleVizualizareReteteFavorite(ActionEvent actionEvent) throws Exception {
-        System.out.println("usernameeeeee="+cursant.getUsername());
-        ListaReteteFavoriteController.setUsername(cursant.getUsername());
-        Parent fxml = FXMLLoader.load(getClass().getResource("/ListaReteteFavorite.fxml"));
-        Scene scene = new Scene(fxml);
-        //scene.setFill(Color.TRANSPARENT);
-        Stage primaryStage = new Stage();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    }
+}
 

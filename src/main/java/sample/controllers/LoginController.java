@@ -107,6 +107,8 @@ public class LoginController {
             if (UserService.checkCredentiale(username, password, role)) {
                 loginMessage.setText("Autentificare cu succes");
                 try {
+                    RegistrationControllerBucatar pagina =new RegistrationControllerBucatar();
+                    pagina.setBucatar(UserService.getBucatar());
                     Parent fxml = FXMLLoader.load(getClass().getResource("/PaginaPrincipalaBucatar.fxml"));
                     Scene scene = new Scene(fxml);
                     scene.setFill(Color.TRANSPARENT);
@@ -122,7 +124,7 @@ public class LoginController {
         else {
             try{
                 if(UserService.checkCredentiale(username,password,role) && role.equals("Cursant")){
-                    RegistrationControllerCursant.setCursant(UserService.getCursantByUsername(username));
+                    PaginaPrincipalaCursantController.setCursant(UserService.getCursantByUsername(username));
                     loginMessage.setText("Autentificare cu succes");
                     try {
                         Parent fxml= FXMLLoader.load(getClass().getResource("/PaginaPrincipalaCursant.fxml"));
