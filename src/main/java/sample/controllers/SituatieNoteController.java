@@ -16,28 +16,34 @@ public class SituatieNoteController {
     private Text medieNote;
 
     private static String username;
-    private  List<StatisticaNote> statistica = StatisticaNotaService.getListaStatistica();
+    private List<StatisticaNote> statistica = StatisticaNotaService.getListaStatistica();
 
     public SituatieNoteController() throws Exception {
     }
 
 
     public void setUsername(String username) {
-        System.out.println("statisticaNote - setUsername - username "+username);
+        System.out.println("statisticaNote - setUsername - username " + username);
         this.username = username;
     }
 
 
-
     @FXML
     public void initialize() throws Exception {
-        System.out.println("SituatieNoteController initialize() " );
-        for(StatisticaNote st: statistica){
-            if(st.getUsername().equals(username)){
-                this.listaNote.setText("Note:" +st.getNote());
-                this.medieNote.setText("Medie: " +st.calculMedie());
+        System.out.println("SituatieNoteController initialize() ");
+        for (StatisticaNote st : statistica) {
+            if (st.getUsername().equals(username) && StatisticaNotaService.getNoteCursant(username) != null) {
+                //this.listaNote.setText("Note:" +st.getNote());
+                //this.medieNote.setText("Medie: " +st.calculMedie());
+                this.listaNote.setText("Note: " + StatisticaNotaService.getNoteCursant(username).toString().replace("[", "").replace("]", "").replace(",", ", "));
+            } else {
+                System.out.println("SituatieNoteController-initializare-else");
+                this.listaNote.setText("Note: -");
             }
+            this.medieNote.setText("Medie: " + StatisticaNotaService.getMedieCursant(username));
+
         }
     }
+
 
 }
