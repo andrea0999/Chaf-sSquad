@@ -1,5 +1,6 @@
 package sample.controllers;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -7,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -19,12 +21,14 @@ import sample.services.UserService;
 
 import java.io.IOException;
 
-public class LoginController {
+public class LoginController  {
 
     ObservableList<String> roleList = FXCollections.observableArrayList("Cursant", "Bucatar");
 
     @FXML
-    private Text loginMessage;
+    private  Text loginMessage;
+    @FXML
+    private   Text loginMessage1;
     @FXML
     private PasswordField passwordField;
     @FXML
@@ -34,6 +38,9 @@ public class LoginController {
 
     private static Bucatar bucatar;
 
+    private static int countB=0, countC=0;
+    private static  boolean dejaBlocat = false;
+
     public static void setBucatar(Bucatar bucatar) { LoginController.bucatar = bucatar; }
 
     @FXML
@@ -41,6 +48,30 @@ public class LoginController {
         roleField.setValue("Cursant");
         roleField.setItems(roleList);
     }
+
+    @FXML
+    private  Button loginButton = new Button();
+
+    public void blocareButon(){
+        new Thread(() -> {
+            Platform.runLater(new Runnable() {
+                public void run() {
+                    loginButton.setDisable(true);
+                }
+            });
+            try {
+                Thread.sleep(30000); //5 seconds, obviously replace with your chosen time
+            }
+            catch(InterruptedException ex) {
+            }
+            Platform.runLater(new Runnable() {
+                public void run() {
+                    loginButton.setDisable(false);
+                }
+            });
+        }).start();
+    }
+
 
     public void creazaInregistrareBucatar(ActionEvent actionEvent) throws IOException {
         Parent fxml= FXMLLoader.load(getClass().getResource("/RegisterChef.fxml"));
@@ -118,9 +149,18 @@ public class LoginController {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            } else
-                loginMessage.setText("Incorrect login!");
-        }
+            } else {
+                if(countB==2 && !dejaBlocat) {
+                    loginMessage1.setText("Ati ajuns la numarul maxim de incercari; Va rugam asteptati 30 de minute si apoi reincercati");
+                    blocareButon();
+                    countB=0;
+                }
+                else {
+                    countB++;
+                    loginMessage.setText("Incorrect login!");
+                     }
+                }
+            }
         else {
             try{
                 if(UserService.checkCredentiale(username,password,role) && role.equals("Cursant")){
@@ -136,9 +176,17 @@ public class LoginController {
                     }catch (IOException e) {
                         e.printStackTrace();
                     }
+                }else {
+                    if(countC==2){
+                        loginMessage1.setText("Ati ajuns la numarul maxim de incercari; Va rugam asteptati 30 de minute si apoi reincercati");
+                        blocareButon();
+                        countC=0;
+                    }
+                else{
+                        countC++;
+                        loginMessage.setText("Incorrect login!");
+                    }
                 }
-                else
-                    loginMessage.setText("Incorrect login!");
             }catch (ContCursantInactivException e1) {
                 loginMessage.setText(e1.getMessage());
             }
