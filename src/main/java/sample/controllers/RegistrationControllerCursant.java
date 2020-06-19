@@ -14,19 +14,19 @@ import java.io.IOException;
 
 public class RegistrationControllerCursant {
     @FXML
-    private Text registrationMessage;
+     public Text registrationMessage;
     @FXML
-    private TextField firstname;
+    public TextField firstname;
     @FXML
-    private TextField lastname;
+    public TextField lastname;
     @FXML
-    private TextField username;
+     public TextField username;
     @FXML
-    private PasswordField password;
+     public PasswordField password;
     @FXML
-    private TextField email;
+    public TextField email;
     @FXML
-    private TextField phone;
+    public TextField phone;
 
 
     @FXML
