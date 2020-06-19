@@ -232,5 +232,8 @@ public class UserService {
         return count;
     }
 
+    public static void setUsers(List<User> users) {
+        UserService.users = users;
+    }
 }
 

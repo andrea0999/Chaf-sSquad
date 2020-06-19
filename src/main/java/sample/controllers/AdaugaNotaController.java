@@ -16,11 +16,11 @@ public class AdaugaNotaController {
     @FXML
     private Text numeComplet;
     @FXML
-    private Text username;
+    public Text username;
     @FXML
-    private TextField notaAdaugata;
+    public TextField notaAdaugata;
     @FXML
-    private Text message;
+    public Text message;
 
     private static Cursant cursant;
 
@@ -36,7 +36,7 @@ public class AdaugaNotaController {
     }
 
 
-    public void handleAdaugaNota(ActionEvent actionEvent) throws Exception {
+    public void handleAdaugaNota() throws Exception {
        try{
            if(Double.parseDouble(notaAdaugata.getText())>0 && Double.parseDouble(notaAdaugata.getText()) <=10){
                message.setText("Nota a fost adaugata cu succes!");

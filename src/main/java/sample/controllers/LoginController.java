@@ -26,15 +26,15 @@ public class LoginController  {
     ObservableList<String> roleList = FXCollections.observableArrayList("Cursant", "Bucatar");
 
     @FXML
-    private  Text loginMessage;
+    public  Text loginMessage;
     @FXML
-    private   Text loginMessage1;
+    public  Text loginMessage1;
     @FXML
-    private PasswordField passwordField;
+    public PasswordField passwordField;
     @FXML
-    private TextField usernameField;
+    public TextField usernameField;
     @FXML
-    private ChoiceBox roleField;
+    public ChoiceBox roleField;
 
     private static Bucatar bucatar;
 
@@ -104,7 +104,7 @@ public class LoginController  {
 
 
     @FXML
-    public void handleLoginButtonAction(ActionEvent actionEvent) throws Exception {
+    public void handleLoginButtonAction() throws Exception {
         String username = usernameField.getText();
 
         SchimbaParolaController userSchimbaParola = new SchimbaParolaController();
@@ -137,7 +137,7 @@ public class LoginController  {
         if(role.equals("Bucatar") ) {
             if (UserService.checkCredentiale(username, password, role)) {
                 loginMessage.setText("Autentificare cu succes");
-                try {
+                /*try {
                     RegistrationControllerBucatar pagina =new RegistrationControllerBucatar();
                     pagina.setBucatar(UserService.getBucatar());
                     Parent fxml = FXMLLoader.load(getClass().getResource("/PaginaPrincipalaBucatar.fxml"));
@@ -148,7 +148,7 @@ public class LoginController  {
                     primaryStage.show();
                 } catch (IOException e) {
                     e.printStackTrace();
-                }
+                }*/
             } else {
                 if(countB==2 && !dejaBlocat) {
                     loginMessage1.setText("Ati ajuns la numarul maxim de incercari; Va rugam asteptati 30 de minute si apoi reincercati");
@@ -166,7 +166,7 @@ public class LoginController  {
                 if(UserService.checkCredentiale(username,password,role) && role.equals("Cursant")){
                     PaginaPrincipalaCursantController.setCursant(UserService.getCursantByUsername(username));
                     loginMessage.setText("Autentificare cu succes");
-                    try {
+                   /* try {
                         Parent fxml= FXMLLoader.load(getClass().getResource("/PaginaPrincipalaCursant.fxml"));
                         Scene scene=new Scene(fxml);
                         scene.setFill(Color.TRANSPARENT);
@@ -175,7 +175,7 @@ public class LoginController  {
                         primaryStage.show();
                     }catch (IOException e) {
                         e.printStackTrace();
-                    }
+                    }*/
                 }else {
                     if(countC==2){
                         loginMessage1.setText("Ati ajuns la numarul maxim de incercari; Va rugam asteptati 30 de minute si apoi reincercati");

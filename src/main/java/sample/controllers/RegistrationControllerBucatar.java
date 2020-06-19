@@ -18,7 +18,7 @@ import java.io.IOException;
 
 public class RegistrationControllerBucatar {
     @FXML
-    private Text registrationMessage;
+    public Text registrationMessage;
     @FXML
     private Text numeBucatar;
     @FXML
@@ -26,9 +26,9 @@ public class RegistrationControllerBucatar {
     @FXML
     private TextField prenume;
     @FXML
-    private TextField username;
+    public TextField username;
     @FXML
-    private PasswordField password;
+    public PasswordField password;
     @FXML
     private TextField email;
     @FXML
