@@ -19,13 +19,13 @@ import java.util.Objects;
 public class SchimbaParolaController {
 
     @FXML
-    private Text message;
+    public Text message;
     @FXML
-    private PasswordField parolaVecheField;
+    public PasswordField parolaVecheField;
     @FXML
-    private PasswordField parolaNouaField;
+    public PasswordField parolaNouaField;
     @FXML
-    private PasswordField parolaNouaConfirmareField;
+    public PasswordField parolaNouaConfirmareField;
 
     private List<User> listaUsers = UserService.getListaUsers();
     private  static String username;
@@ -38,7 +38,7 @@ public class SchimbaParolaController {
         this.username=username;
     }
 
-    public void handleSchimbaParolaAction(ActionEvent actionEvent) throws Exception {
+    public void handleSchimbaParolaAction() throws Exception {
         System.out.println("SchimbaParolaController - handleSchimbaParolaAction usename "+ this.username);
 
         for(User user: listaUsers){
@@ -63,11 +63,11 @@ public class SchimbaParolaController {
                             } else {
                                 Thread.sleep(5000);
                                 Parent fxml = FXMLLoader.load(getClass().getResource("/PaginaPrincipalaCursant.fxml"));
-                               Scene scene = new Scene(fxml);
+                                Scene scene = new Scene(fxml);
                                 //scene.setFill(Color.TRANSPARENT);
                                 Stage primaryStage = new Stage();
-                                 primaryStage.setScene(scene);
-                                 primaryStage.show();
+                                primaryStage.setScene(scene);
+                                primaryStage.show();
                             }
                         }
                         else{

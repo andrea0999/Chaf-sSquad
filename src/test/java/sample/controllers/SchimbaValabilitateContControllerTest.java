@@ -38,7 +38,7 @@ public class SchimbaValabilitateContControllerTest  extends ApplicationTest {
     }
 
     @Test
-    public void testhandleStergeRetetaActionCode() throws Exception {
+    public void testhHandleSchimbaValabilitateaActionCode() throws Exception {
         controller.handleSchimbaValabilitatea();
         Cursant testCursant=UserService.getCursantByUsername("andrei");
         assertEquals(0,testCursant.getValabilitate());
