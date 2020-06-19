@@ -30,14 +30,11 @@ public class LoginControllerTest extends ApplicationTest {
 
     @BeforeClass
     public static void setupClass() throws Exception {
-        //FileSystemService.APPLICATION_FOLDER = ".test-registrationBucatar-example";
-        //FileSystemService.initApplicationHomeDirIfNeeded();
         users = UserService.getListaUsers();
     }
 
     @Before
     public void setUp() throws Exception {
-        // FileUtils.cleanDirectory("Users.json");
 
         controller = new LoginController();
         controller.usernameField = new TextField();

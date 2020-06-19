@@ -20,7 +20,7 @@ public class SchimbaValabilitateContController {
     @FXML
     private Text username;
     @FXML
-    private Text message;
+    public Text message;
     @FXML
     private Text intrebare;
     @FXML
@@ -44,7 +44,7 @@ public class SchimbaValabilitateContController {
         }
     }
 
-    public void handleSchimbaValabilitatea(ActionEvent actionEvent) throws Exception {
+    public void handleSchimbaValabilitatea() throws Exception {
         if(cursant.getValabilitate() == 1){
             UserService.schimbaValabilitateContCursant(cursant.getUsername(),0);
             message.setText("Contul a fost dezactivat cu succes!");

@@ -111,4 +111,9 @@ public class RetetaService {
             }
         }
     }
+
+    public static void setRetete(List<Reteta> retete) {
+        System.out.println("retete"+retete);
+        RetetaService.retete = retete;
+    }
 }
