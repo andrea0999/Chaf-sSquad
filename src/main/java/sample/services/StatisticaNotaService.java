@@ -120,4 +120,9 @@ public class StatisticaNotaService {
         return null;
     }
 
+    public static void setStatistica(List<StatisticaNote> statistica) {
+        StatisticaNotaService.statistica = statistica;
+    }
+
+
 }
