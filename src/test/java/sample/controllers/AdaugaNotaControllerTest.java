@@ -17,7 +17,7 @@ import static org.junit.Assert.assertEquals;
 
 public class AdaugaNotaControllerTest extends ApplicationTest {
     public static final String TEST_ADAUGA_NOTA = "5.5";
-    public static final String TEST_username = "bereBoss";
+    public static final String TEST_username = "andy";
 
     private AdaugaNotaController controller;
 
