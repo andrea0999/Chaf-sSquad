@@ -25,7 +25,7 @@ import java.util.List;
 public class ListaReteteController {
 
     @FXML
-    private Text message;
+    public Text message;
 
     @FXML
     public TableView<Reteta> retetaTable;
@@ -91,7 +91,7 @@ public class ListaReteteController {
     }
 
     @FXML
-    public void handleVizualizarePaginaReteta(ActionEvent actionEvent) throws IOException {
+    public void handleVizualizarePaginaReteta() throws IOException {
         Reteta retetaSelectata = retetaTable.getSelectionModel().getSelectedItem();
         PaginaRetetaController pagina =new PaginaRetetaController();
         if(retetaSelectata!= null) {
@@ -109,7 +109,7 @@ public class ListaReteteController {
     }
 
     @FXML
-    public void handleEditeazaReteta(ActionEvent actionEvent) throws IOException {
+    public void handleEditeazaReteta() throws IOException {
         Reteta retetaSelectata = retetaTable.getSelectionModel().getSelectedItem();
         EditeazaRetetaController pagina =new EditeazaRetetaController();
         if(retetaSelectata!= null) {
@@ -127,7 +127,7 @@ public class ListaReteteController {
     }
 
     @FXML
-    public void handleStergeReteta(ActionEvent actionEvent) throws IOException {
+    public void handleStergeReteta() throws IOException {
         Reteta retetaSelectata = retetaTable.getSelectionModel().getSelectedItem();
         StergeRetetaController pagina =new StergeRetetaController();
         if(retetaSelectata!= null) {
