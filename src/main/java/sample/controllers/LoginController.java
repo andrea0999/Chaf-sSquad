@@ -44,9 +44,10 @@ public class LoginController  {
     public static void setBucatar(Bucatar bucatar) { LoginController.bucatar = bucatar; }
 
     @FXML
-    public void initialize(){
+    public void initialize() throws Exception {
         roleField.setValue("Cursant");
         roleField.setItems(roleList);
+        bucatar=UserService.getBucatar();
     }
 
     @FXML

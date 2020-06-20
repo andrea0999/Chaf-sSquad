@@ -17,7 +17,7 @@ import static org.junit.Assert.assertNotEquals;
 import static org.testng.AssertJUnit.assertNotNull;
 
 public class UserServiceTest extends ApplicationTest {
-    private int ok = 0;
+   private int ok = 0;
     private static List<User> users;
 
     @Before

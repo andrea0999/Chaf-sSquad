@@ -8,7 +8,4 @@ public class NumarMaximDeNoteAtinsException extends Exception {
         this.username = username;
     }
 
-    public String getUsername() {
-        return username;
-    }
 }
