@@ -3,8 +3,10 @@ package sample.services;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import sample.entities.Cursant;
 import sample.entities.Reteta;
 
+import sample.entities.User;
 import sample.exceptions.RetetaAlreadyExistsException;
 
 import java.io.*;
@@ -113,9 +115,10 @@ public class RetetaService {
     }
 
     public static void setRetete(List<Reteta> retete) {
-        System.out.println("retete"+retete);
+        System.out.println("RetetaService setRetete() retete"+retete);
         RetetaService.retete = retete;
     }
+
     public static Reteta  getRetetaByName(String nume) throws Exception {
         System.out.println("ReteteService->getListaRetete()");
         parcurgereListaRetete();
