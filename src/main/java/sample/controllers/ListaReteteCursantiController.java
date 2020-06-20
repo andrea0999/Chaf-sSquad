@@ -29,7 +29,7 @@ import java.util.List;
 public class ListaReteteCursantiController {
 
     @FXML
-    private Text message;
+    public Text message;
 
     @FXML
     public TableView<Reteta> retetaTable;
@@ -53,6 +53,7 @@ public class ListaReteteCursantiController {
         usernameLogin = username;
         System.out.println("setUsernameAdaugaRetetaFavorita: "+usernameLogin);
     }
+    public static String getUsernameLogin(){return  usernameLogin;}
 
     @FXML
     public void initialize() throws Exception {
@@ -84,9 +85,8 @@ public class ListaReteteCursantiController {
         // 5. Add sorted (and filtered) data to the table.
         retetaTable.setItems(sortedData);
     }
-
     @FXML
-    public void handleVizualizarePaginaReteta(ActionEvent actionEvent) throws IOException {
+    public void handleVizualizarePaginaReteta() throws IOException {
         Reteta retetaSelectata = retetaTable.getSelectionModel().getSelectedItem();
         PaginaRetetaController pagina =new PaginaRetetaController();
         if(retetaSelectata!= null) {
@@ -104,7 +104,7 @@ public class ListaReteteCursantiController {
     }
 
     @FXML
-    public void handleAdaugaRetetaFavorita(ActionEvent actionEvent) throws Exception {
+    public void handleAdaugaRetetaFavorita() throws Exception {
         Reteta retetaSelectata = retetaTable.getSelectionModel().getSelectedItem();
         if(retetaSelectata!= null) {
             try {
