@@ -88,12 +88,18 @@ public class AdaugaNotaControllerTest extends ApplicationTest {
         int k = 1;
         for (StatisticaNote st : statistica) {
             if (st.getUsername().equals(TEST_username)) {
-                for (Double nota : st.getNote()) {
-                    if (k == st.getNote().size()) {
-                        st.getNote().remove(nota);
-                        break;
+                if(st.getNote().size() == 1){
+                    statistica.remove(st);
+                    break;
+                }
+                else {
+                    for (Double nota : st.getNote()) {
+                        if (k == st.getNote().size()) {
+                            st.getNote().remove(nota);
+                            break;
+                        }
+                        k++;
                     }
-                    k++;
                 }
             }
         }

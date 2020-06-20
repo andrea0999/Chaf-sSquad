@@ -42,7 +42,7 @@ public class SchimbaParolaControllerTest extends ApplicationTest {
         controller.parolaNouaConfirmareField.setText(TEST_PAROLA_NOUA_CONFIRMARE);
     }
 
-    @Test
+    @Test(expected= IllegalStateException.class)
     public void testHandleSchimbaParolaActionCodeSucces() throws Exception {
         controller.handleSchimbaParolaAction();
         assertEquals("Parola schimbata cu succes!", controller.message.getText());
