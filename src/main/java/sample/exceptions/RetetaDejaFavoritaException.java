@@ -7,8 +7,4 @@ public class RetetaDejaFavoritaException extends Exception{
         super(String.format("Reteta %s este deja printre favoritele tale!", nume));
         this.nume = nume;
     }
-
-    public String getUsername() {
-        return nume;
-    }
 }

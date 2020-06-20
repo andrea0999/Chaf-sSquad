@@ -49,7 +49,7 @@ public class ListaReteteController {
         System.out.println("ListaReteteController initialize()");
         retetaNumeColumn.setCellValueFactory(new PropertyValueFactory<>("nume"));
         retetaTimpDePreparareColumn.setCellValueFactory(new PropertyValueFactory<>("timpDePreparare"));
-        ascundeButoaneCursanti();
+        //ascundeButoaneCursanti();
         FilteredList<Reteta> filteredData = new FilteredList<>(retete, p -> true);
                 cautareField.textProperty().addListener((observable, valoareVeche, valoareNoua) -> {
             filteredData.setPredicate(reteta -> {
@@ -83,12 +83,12 @@ public class ListaReteteController {
     @FXML
     private Button stergeReteta=new Button();
 
-    public void ascundeButoaneCursanti(){
+   /* public void ascundeButoaneCursanti(){
         if(userRole.equals("Cursant")){
             editeazaReteta.setVisible(false);
             stergeReteta.setVisible(false);
         }
-    }
+    }*/
 
     @FXML
     public void handleVizualizarePaginaReteta() throws IOException {

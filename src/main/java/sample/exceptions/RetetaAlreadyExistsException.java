@@ -7,8 +7,4 @@ public class RetetaAlreadyExistsException extends Exception{
         super(String.format("Reteta cu numele %s exista!", nume));
         this.nume = nume;
     }
-
-    public String getUsername() {
-        return nume;
-    }
 }

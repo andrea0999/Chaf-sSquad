@@ -57,7 +57,7 @@ public class PaginaPrincipalaCursantController {
 
 
     public void handleVizualizareReteteFavorite(ActionEvent actionEvent) throws Exception {
-        System.out.println("usernameeeeee="+cursant.getUsername());
+        System.out.println("PaginaPrincipalaCursantController handleVizualizareReteteFavorite() username="+cursant.getUsername());
         ListaReteteFavoriteController.setUsername(cursant.getUsername());
         Parent fxml = FXMLLoader.load(getClass().getResource("/ListaReteteFavorite.fxml"));
         Scene scene = new Scene(fxml);

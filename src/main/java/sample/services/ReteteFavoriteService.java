@@ -112,5 +112,8 @@ public class ReteteFavoriteService {
         ReteteFavoriteService.reteteFavorite = reteteFavorite;
     }
 
-
+    public static List<RetetaFavorita> getReteteFavorite() throws Exception {
+        parcurgereReteteFavorite();
+        return reteteFavorite;
+    }
 }

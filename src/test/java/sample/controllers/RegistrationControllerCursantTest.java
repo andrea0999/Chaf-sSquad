@@ -72,7 +72,6 @@ public class RegistrationControllerCursantTest extends ApplicationTest {
 
     @After
     public void resetListaCursanti() throws Exception {
-       // UserService.parcurgereListaUsers();
         List<User> users = UserService.getListaUsers();
         int k=1;
         for(User user : users){

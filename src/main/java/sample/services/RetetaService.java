@@ -78,7 +78,7 @@ public class RetetaService {
         parcurgereListaRetete();
         for (Reteta reteta : retete) {
             if (nume.equals(reteta.getNume())) {
-                System.out.println("same reteta");
+                System.out.println("RetetaService checkRetetaDoesNotAlreadyExists() reteta deja exista!");
                 throw new RetetaAlreadyExistsException(nume);
             }
         }
@@ -115,14 +115,17 @@ public class RetetaService {
     }
 
     public static void setRetete(List<Reteta> retete) {
+        System.out.println("RetetaService setRetete() retete"+retete);
         RetetaService.retete = retete;
     }
 
-    public static Reteta getRetetaByNume(String nume) throws Exception {
+    public static Reteta  getRetetaByName(String nume) throws Exception {
+        System.out.println("ReteteService->getListaRetete()");
         parcurgereListaRetete();
-        for(Reteta reteta: retete)
-            if(reteta.getNume().equals(nume))
-                return  reteta;
+        for (Reteta reteta: retete)
+            if(reteta.getNume().equals(nume)){
+                return reteta;
+            }
         return null;
     }
 }

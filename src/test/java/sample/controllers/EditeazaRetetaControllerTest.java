@@ -42,12 +42,12 @@ public class EditeazaRetetaControllerTest extends ApplicationTest {
         controller.etapeCulinare.setText(TEST_Etape);
         controller.timpDePreparare.setText(TEST_Timp);
 
-        controller.setReteta(RetetaService.getRetetaByNume(TEST_NUME));
+        controller.setReteta(RetetaService.getRetetaByName(TEST_NUME));
     }
 
     @Test
     public void testRetetaEditataCuSucces() throws Exception {
-        retetaAux = RetetaService.getRetetaByNume(TEST_NUME);
+        retetaAux = RetetaService.getRetetaByName(TEST_NUME);
         retetaVeche = new Reteta(retetaAux.getNume(),retetaAux.getIngrediente(),retetaAux.getEtapeCulinare(),retetaAux.getTimpDePreparare());
         controller.handleEditeazaReteta();
         assertEquals("Reteta editata cu succes!", controller.message.getText());

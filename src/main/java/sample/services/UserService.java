@@ -106,7 +106,7 @@ public class UserService {
         writeJsonUsers("Users.json");
     }
 
-    private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
+    public static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
         System.out.println("UserService->checkUserDoesNotAlreadyExist()");
         for (User user : users) {
             if (Objects.equals(username, user.getUsername())) {

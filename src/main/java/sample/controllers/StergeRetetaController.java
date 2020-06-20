@@ -15,7 +15,7 @@ public class StergeRetetaController {
     @FXML
     private Text nume;
     @FXML
-    private Text message;
+    public Text message;
 
     private static Reteta reteta;
 
@@ -29,7 +29,7 @@ public class StergeRetetaController {
         this.nume.setText(reteta.getNume());
     }
 
-    public void handleStergeReteta(ActionEvent actionEvent) throws Exception {
+    public void handleStergeReteta() throws Exception {
         System.out.println("StergeRetetaController-> handleStergeReteta");
         RetetaService.stergeReteta(reteta.getNume());
         message.setText("Reteta stearsa cu succes!");

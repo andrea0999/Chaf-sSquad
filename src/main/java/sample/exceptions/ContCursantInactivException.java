@@ -7,8 +7,4 @@ public class ContCursantInactivException extends Exception {
         super(String.format("Contul cu numele de utilizator %s este inactiv!", username));
         this.username = username;
     }
-
-    public String getUsername() {
-        return username;
-    }
 }
