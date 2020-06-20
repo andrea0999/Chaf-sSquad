@@ -1,15 +1,12 @@
 package sample.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.testfx.framework.junit.ApplicationTest;
 import sample.entities.Cursant;
 import sample.entities.StatisticaNote;
-import sample.entities.User;
 import sample.services.StatisticaNotaService;
 import sample.services.UserService;
 
@@ -25,10 +22,7 @@ public class AdaugaNotaControllerTest extends ApplicationTest {
     private AdaugaNotaController controller;
 
 
-   /* @BeforeClass
-    public static void setupClass() throws Exception {
-        List<Double> note = StatisticaNotaService.getNoteCursant(TEST_username);
-    }*/
+
     @Before
     public void setUp() throws Exception {
         controller = new AdaugaNotaController();
@@ -43,7 +37,9 @@ public class AdaugaNotaControllerTest extends ApplicationTest {
 
     @Test
     public void testNotaAdaugataCuSucces() throws Exception {
+        int before = StatisticaNotaService.getNoteCursant(TEST_username).size();
         controller.handleAdaugaNota();
+        assertEquals(before+1, StatisticaNotaService.getNoteCursant(TEST_username).size());
         assertEquals("Nota a fost adaugata cu succes!", controller.message.getText());
         resetNote();
     }
@@ -114,8 +110,5 @@ public class AdaugaNotaControllerTest extends ApplicationTest {
         StatisticaNotaService.setStatistica(statistica);
         StatisticaNotaService.writeJsonStatisticaNote("StatisticaNote.json");
     }
-
-
-
 
 }

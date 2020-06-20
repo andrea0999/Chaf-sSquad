@@ -49,7 +49,7 @@ public class LoginControllerTest extends ApplicationTest {
 
     }
 
-    @Test
+    @Test(expected = Exception.class)
     public void testHandleLoginAccesSuccesfullCursant() throws Exception {
         controller.handleLoginButtonAction();
         System.out.println("testLogin");
@@ -62,7 +62,7 @@ public class LoginControllerTest extends ApplicationTest {
         assertEquals("Incorrect login!", controller.loginMessage.getText());
     }
 
-    @Test
+    @Test(expected = Exception.class)
     public void testHandleLoginAccesSuccesfullBucatar() throws Exception {
         controller.usernameField.setText("andrea");
         controller.passwordField.setText("1234");
@@ -94,6 +94,12 @@ public class LoginControllerTest extends ApplicationTest {
         controller.handleLoginButtonAction();
         assertEquals("Contul cu numele de utilizator andrei este inactiv!", controller.loginMessage.getText());
         resetListaCursanti();
+    }
+
+    @Test(expected = Exception.class)
+    public void tesBlocareBotonCursant() throws Exception {
+        controller.handleLoginButtonAction();
+        assertEquals("Ati ajuns la numarul maxim de incercari; Va rugam asteptati 30 de minute si apoi reincercati", controller.loginMessage.getText());
     }
 
 

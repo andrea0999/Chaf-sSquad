@@ -108,4 +108,9 @@ public class ReteteFavoriteService {
     }
 
 
+    public static void setReteteFavorite(List<RetetaFavorita> reteteFavorite) {
+        ReteteFavoriteService.reteteFavorite = reteteFavorite;
+    }
+
+
 }

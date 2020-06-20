@@ -27,7 +27,7 @@ import java.util.List;
 public class ListaReteteFavoriteController {
 
     @FXML
-    private Text message;
+    public Text message;
 
     @FXML
     public TableView<Reteta> retetaFavoritaTable;
@@ -100,7 +100,7 @@ public class ListaReteteFavoriteController {
         }
 
     @FXML
-    public void handleVizualizarePaginaRetetaFavorita(ActionEvent actionEvent) throws IOException {
+    public void handleVizualizarePaginaRetetaFavorita() throws IOException {
         Reteta retetaSelectata = retetaFavoritaTable.getSelectionModel().getSelectedItem();
         PaginaRetetaController pagina =new PaginaRetetaController();
         if(retetaSelectata!= null) {

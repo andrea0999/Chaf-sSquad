@@ -12,19 +12,22 @@ import sample.services.RetetaService;
 public class EditeazaRetetaController {
 
         @FXML
-        private Text message;
+        public Text message;
         @FXML
-        private TextField nume;
+        public TextField nume;
         @FXML
-        private TextField ingrediente;
+        public TextField ingrediente;
         @FXML
-        private TextField etapeCulinare;
+        public TextField etapeCulinare;
         @FXML
-        private TextField timpDePreparare;
+        public TextField timpDePreparare;
 
         private static Reteta reteta;
 
-        public void setReteta(Reteta reteta) { this.reteta = reteta; }
+        public  void setReteta(Reteta reteta) {
+            this.reteta = reteta;
+            System.out.println(this.reteta);
+        }
 
         @FXML
         public void initialize() throws Exception {
@@ -34,7 +37,7 @@ public class EditeazaRetetaController {
             this.etapeCulinare.setText("Etape culinare: \n"+reteta.getEtapeCulinare());
             this.timpDePreparare.setText("Timp de preparare: "+reteta.getTimpDePreparare());
         }
-    public void handleEditeazaReteta(ActionEvent actionEvent) throws Exception {
+    public void handleEditeazaReteta() throws Exception {
         System.out.println("EditeazaRetetaController-> handleEditeazaReteta");
         String numeEditat = new String(nume.getText());
         String ingredienteEditat = new String(ingrediente.getText().replace("Ingrediente: ",""));
@@ -54,17 +57,6 @@ public class EditeazaRetetaController {
             RetetaService.editeazaReteta(reteta.getNume(), numeEditat, ingredienteEditat, etapeCulinareEditat, timpDePreparareEditat);
             message.setText("Reteta editata cu succes!");
         }
-
-
-      /*  try {
-            RetetaService.addReteta(titluField.getText(),ingredienteField.getText(),etapeCulinareField.getText(),timpPrepareField.getText());
-            registrationMessage.setText("Reteta adaugata cu succes!");
-
-
-        } catch (RetetaAlreadyExistsException e) {
-            registrationMessage.setText(e.getMessage());
-            System.out.println("registration message: "+registrationMessage);
-        }*/
 
     }
 }

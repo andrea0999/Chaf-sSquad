@@ -30,7 +30,7 @@ import java.util.Observable;
 public class ListaCursantiController {
 
     @FXML
-    private Text message;
+    public Text message;
 
     @FXML
     public TableView<Cursant> cursantTable;
@@ -120,7 +120,7 @@ public class ListaCursantiController {
     }
 
     @FXML
-    public void handleVizualizarePaginaCursant(ActionEvent actionEvent) throws IOException {
+    public void handleVizualizarePaginaCursant() throws IOException {
         Cursant cursantSelectat = (Cursant) cursantTable.getSelectionModel().getSelectedItem();
         PaginaCursantController paginaC =new PaginaCursantController();
         if( cursantSelectat!= null) {
@@ -138,7 +138,7 @@ public class ListaCursantiController {
     }
 
 
-    public void handleAdaugaNotaCursant(ActionEvent actionEvent) throws IOException {
+    public void handleAdaugaNotaCursant() throws IOException {
         System.out.println("ListaCursantiController - handleAdaugaNotaCursant()");
         Cursant cursantSelectat = (Cursant) cursantTable.getSelectionModel().getSelectedItem();
         AdaugaNotaController paginaC =new AdaugaNotaController();
@@ -155,7 +155,7 @@ public class ListaCursantiController {
         else
             message.setText("Va rugam selectati un cursant pentru a-i da o nota");
     }
-    public void handleSchimbaValabilitateContCursant(ActionEvent actionEvent) throws IOException {
+    public void handleSchimbaValabilitateContCursant() throws IOException {
         System.out.println("ListaCursantiController - handleSchimbaValabilitateContCursant()");
         Cursant cursantSelectat = (Cursant) cursantTable.getSelectionModel().getSelectedItem();
         SchimbaValabilitateContController pagina =new SchimbaValabilitateContController();
