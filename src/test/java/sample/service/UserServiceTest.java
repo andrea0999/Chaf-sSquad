@@ -17,7 +17,7 @@ import static org.junit.Assert.assertNotEquals;
 import static org.testng.AssertJUnit.assertNotNull;
 
 public class UserServiceTest extends ApplicationTest {
-    int ok = 0;
+    private int ok = 0;
     private static List<User> users;
 
     @Before
@@ -74,6 +74,7 @@ public class UserServiceTest extends ApplicationTest {
         assertNotNull(UserService.getListaUsers());
         UserService.checkUserDoesNotAlreadyExist("test");
     }
+
     @Test
     public void testPasswordEncoding() {
         ok= 0;
@@ -120,7 +121,7 @@ public class UserServiceTest extends ApplicationTest {
 
     @After
     public void resetListaUsers() throws Exception {
-        System.out.println("reset");
+        System.out.println("UserServiceTest resetListaUsers()");
         while(ok!=0) {
             List<User> users = UserService.getListaUsers();
             int k = 1;
